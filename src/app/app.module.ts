@@ -21,11 +21,11 @@ import { environment } from '../environments/environment';
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
   customConfig: {
-    scopes: ['user_photos', 'email', 'user_likes', 'user_friends'],
-    customParameters: {
-      // Forces password re-entry.
-      auth_type: 'reauthenticate'
-    }
+    scopes: ['email']
+    // customParameters: {
+    //   // Forces password re-entry.
+    //   auth_type: 'reauthenticate'
+    // }
   }
 };
 
