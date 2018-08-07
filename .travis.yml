@@ -10,6 +10,9 @@ before_script:
   - npm install -g firebase-tools
   - npm install -g @angular/cli
 
+install:
+  - npm install
+
 script:
   - npm rum apiKey $FIREBASE_APIKEY
   - npm rum build
