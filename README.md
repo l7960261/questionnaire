@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/l7960261/questionnaire.svg?branch=master)](https://travis-ci.org/l7960261/questionnaire)
+
 # Questionnaire
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
