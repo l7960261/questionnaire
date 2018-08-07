@@ -25,6 +25,8 @@
     "firebase": "^5.3.1",
     "firebaseui": "^3.2.0",
     "firebaseui-angular": "^3.1.1",
+    "ngx-onsenui": "^4.2.2",
+    "onsenui": "^2.10.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

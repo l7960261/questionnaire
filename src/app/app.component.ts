@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'questionnaire';
+  @ViewChild('carousel')
+  carousel;
+
+  prev() {
+    this.carousel.nativeElement.prev();
+  }
+  next() {
+    this.carousel.nativeElement.next();
+  }
 }

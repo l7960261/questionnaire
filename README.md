@@ -11,3 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [firebaseui](https://github.com/firebase/firebaseui-web)
 
 [firebaseui-angular](https://www.npmjs.com/package/firebaseui-angular)
+
+[onsenui](https://onsen.io/)
+
+[ngx-onsenui](https://github.com/OnsenUI/OnsenUI/tree/master/bindings/angular2)
