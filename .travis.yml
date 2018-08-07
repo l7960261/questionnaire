@@ -17,6 +17,9 @@ script:
   - npm rum apiKey $FIREBASE_APIKEY
   - npm rum build
 
+after_success:
+  - firebase deploy --token "$FIREBASE_TOKEN"
+
 notifications:
   email:
     on_failure: change
