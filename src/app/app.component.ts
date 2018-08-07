@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,5 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('carousel')
-  carousel;
-
-  prev() {
-    this.carousel.nativeElement.prev();
-  }
-  next() {
-    this.carousel.nativeElement.next();
-  }
+  initialPage = HomePageComponent;
 }
