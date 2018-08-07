@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/l7960261/questionnaire.svg?branch=master)](https://travis-ci.org/l7960261/questionnaire)
+[![Build Status](https://travis-ci.org/l7960261/questionnaire.svg?branch=master)](https://travis-ci.org/l7960261/questionnaire) [![Dependency Status](https://david-dm.org/l7960261/questionnaire.svg)](https://david-dm.org/l7960261/questionnaire) [![devDependency Status](https://david-dm.org/l7960261/questionnaire/dev-status.svg)](https://david-dm.org/l7960261/questionnaire?type=dev)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Questionnaire
 
