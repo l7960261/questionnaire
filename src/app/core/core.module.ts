@@ -11,6 +11,7 @@ import {
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
@@ -24,7 +25,7 @@ const facebookCustomConfig: AuthProviderWithCustomConfig = {
 };
 
 const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
-  providers: [facebookCustomConfig, AuthProvider.Phone],
+  providers: [facebookCustomConfig, AuthProvider.Password, AuthProvider.Phone],
   method: AuthMethods.Popup,
   credentialHelper: CredentialHelper.AccountChooser,
   autoUpgradeAnonymousUsers: true,
@@ -36,13 +37,10 @@ const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig)
   ],
-  exports: [
-    AngularFireModule,
-    AngularFireAuthModule,
-    FirebaseUIModule
-  ],
+  exports: [AngularFireModule, AngularFireAuthModule, AngularFireDatabaseModule, FirebaseUIModule],
   declarations: []
 })
 export class CoreModule {

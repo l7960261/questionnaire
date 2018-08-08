@@ -1,8 +1,45 @@
 <ons-toolbar>
   <div class="left"><ons-back-button>Back</ons-back-button></div>
   <div class="center">{{caption}}</div>
+  <div class="right">
+    <ons-toolbar-button (click)="signOut()" *ngIf="signInData">
+      <ons-icon icon="ion-log-out"></ons-icon>
+    </ons-toolbar-button>
+  </div>
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
   <firebase-ui></firebase-ui>
+
+  <ons-list class="contact-info" modifier="inset" *ngIf="signInData">
+    <ons-list-header>聯繫資料</ons-list-header>
+    <ons-list-item modifier="longdivider">
+      <div class="left">
+        <ons-icon icon="ion-person"></ons-icon>
+      </div>
+      <div class="center">
+        <ons-input placeholder="你的大名" [(value)]="user.name"></ons-input>
+      </div>
+    </ons-list-item>
+    <ons-list-item modifier="longdivider">
+      <div class="left">
+        <ons-icon icon="fa-phone"></ons-icon>
+      </div>
+      <div class="center">
+        <ons-input placeholder="連絡電話" [(value)]="user.phone"></ons-input>
+      </div>
+    </ons-list-item>
+    <ons-list-item modifier="longdivider">
+      <div class="left">
+        <ons-icon icon="fa-envelope-o"></ons-icon>
+      </div>
+      <div class="center">
+        <ons-input placeholder="Email" [(value)]="user.email"></ons-input>
+      </div>
+    </ons-list-item>
+  </ons-list>
+
+  <div class="operation" *ngIf="signInData">
+    <ons-button (click)="onNext()">下一步</ons-button>
+  </div>
 </div>
