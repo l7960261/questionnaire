@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Params } from 'ngx-onsenui';
-import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'ons-page[login]',
@@ -12,15 +12,15 @@ export class LoginPageComponent implements OnInit {
   carousel;
 
   caption: string;
-  signInSuccessData: FirebaseUISignInSuccessWithAuthResult;
+  signInData: any;
 
-  constructor(private _params: Params) {}
+  constructor(private _params: Params, private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
-    this.caption = `婚宴 - ${this._params.data.date}`;
-  }
-
-  successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    this.signInSuccessData = signInSuccessData;
+    this.caption = `${this._params.data.name} - ${this._params.data.date}`;
+    this.afAuth.user.subscribe(data => {
+      this.signInData = data;
+      console.log('signInData: ', this.signInData);
+    });
   }
 }
