@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Params } from 'ngx-onsenui';
 
 @Component({
   selector: 'ons-page[login]',
@@ -9,7 +10,11 @@ export class LoginPageComponent implements OnInit {
   @ViewChild('carousel')
   carousel;
 
-  constructor() {}
+  caption: string;
 
-  ngOnInit() {}
+  constructor(private _params: Params) {}
+
+  ngOnInit() {
+    this.caption = `婚宴 - ${this._params.data.date}`;
+  }
 }

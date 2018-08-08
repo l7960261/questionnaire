@@ -8,13 +8,15 @@ import { LoginPageComponent } from '../login-page/login-page.component';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
   constructor(private navigator: OnsNavigator) {}
 
   ngOnInit() {}
 
-  toLoginPage() {
+  toLoginPage(key: number) {
     // Push SecontPageComponent to `ons-navigator
-    this.navigator.element.pushPage(LoginPageComponent);
+    const data = {
+      date: key ? '20190202' : '20181212'
+    };
+    this.navigator.element.pushPage(LoginPageComponent, { data });
   }
 }
