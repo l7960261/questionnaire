@@ -15,3 +15,8 @@ ons-card {
 .card__title {
   font-size: 20px;
 }
+
+.card-img {
+  width: 40px;
+  float: right;
+}
