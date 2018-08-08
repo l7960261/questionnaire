@@ -1,10 +1,17 @@
 .background {
-  background-color: #085078;
 }
 
-.center {
+.intro {
   text-align: center;
-  font-size: 30px;
-  margin-top: 20px;
-  color: #fff;
+  padding: 0 20px;
+  margin-top: 40px;
+}
+
+ons-card {
+  cursor: pointer;
+  color: #333;
+}
+
+.card__title {
+  font-size: 20px;
 }
