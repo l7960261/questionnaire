@@ -70,8 +70,10 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
       vegetarian: this.vegetarian,
       message: this.message
     });
-    this.surveyWrite$ = this.surveyService.write(data, this.organizer).subscribe(() => {
-      alert('提交成功');
+    this.surveyWrite$ = this.surveyService.write(data, this.organizer).subscribe((err: string) => {
+      if (err) {
+        alert(`${err} - 請聯繫翁聖凱`);
+      }
     });
   }
 }
