@@ -1,8 +1,9 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { Params } from 'ngx-onsenui';
+import { OnsNavigator, Params } from 'ngx-onsenui';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SurveyService } from '../../core/survey/survey.service';
+import { CompletePageComponent } from '../complete-page/complete-page.component';
 
 @Component({
   selector: 'ons-page',
@@ -24,7 +25,12 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
   surveyRead$: Subscription;
   surveyWrite$: Subscription;
 
-  constructor(@Inject(FormBuilder) private fb: FormBuilder, private params: Params, private surveyService: SurveyService) {}
+  constructor(
+    @Inject(FormBuilder) private fb: FormBuilder,
+    private navigator: OnsNavigator,
+    private params: Params,
+    private surveyService: SurveyService
+  ) {}
 
   ngOnInit() {
     this.caption = this.params.data.caption;
@@ -73,6 +79,8 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
     this.surveyWrite$ = this.surveyService.write(data, this.organizer).subscribe((err: string) => {
       if (err) {
         alert(`${err} - 請聯繫翁聖凱`);
+      } else {
+        this.navigator.element.pushPage(CompletePageComponent, { data: this.params.data });
       }
     });
   }

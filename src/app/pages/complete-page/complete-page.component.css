@@ -1,0 +1,17 @@
+.background {
+  background-color: #20c997;
+}
+
+.intro {
+  text-align: center;
+  color: #ffffff;
+}
+
+.fireworks {
+  height: 50vh;
+}
+
+.desc {
+  margin: 1rem 0;
+  font-weight: bold;
+}
