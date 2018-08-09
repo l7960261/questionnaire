@@ -16,7 +16,7 @@
   </p>
   <firebase-ui></firebase-ui>
 
-  <aside class="note">
+  <aside class="note" *ngIf="isSignIn">
     Step 1 - 請填寫聯絡資訊
   </aside>
   <ons-list modifier="inset" *ngIf="isSignIn">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Params } from 'ngx-onsenui';
 
 @Component({
   selector: 'ons-page',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./survey-page.component.css']
 })
 export class SurveyPageComponent implements OnInit {
-
-  constructor() { }
+  caption: string;
+  constructor(private params: Params) {}
 
   ngOnInit() {
+    this.caption = this.params.data.caption;
   }
-
 }

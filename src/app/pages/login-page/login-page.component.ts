@@ -13,13 +13,15 @@ export class LoginPageComponent implements OnInit {
   carousel;
 
   caption: string;
+  data: any;
   isSignIn: boolean;
   user: IUser;
 
-  constructor(private navigator: OnsNavigator, private _params: Params, private authericationService: AuthenticationService) {}
+  constructor(private navigator: OnsNavigator, private params: Params, private authericationService: AuthenticationService) {}
 
   ngOnInit() {
-    this.caption = `${this._params.data.name} - ${this._params.data.date}`;
+    this.data = this.params.data;
+    this.caption = this.data.caption;
     this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
     this.authericationService.user().subscribe(val => {
       if (val) {
@@ -37,6 +39,6 @@ export class LoginPageComponent implements OnInit {
 
   onNext() {
     this.authericationService.setUser(this.user);
-    this.navigator.element.pushPage(SurveyPageComponent);
+    this.navigator.element.pushPage(SurveyPageComponent, { data: this.data });
   }
 }

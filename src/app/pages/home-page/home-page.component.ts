@@ -15,8 +15,9 @@ export class HomePageComponent implements OnInit {
   toLoginPage(key: number) {
     // Push SecontPageComponent to `ons-navigator
     const data = {
+      organizer: key ? 'male' : 'female',
       date: key ? '20190202' : '20181212',
-      name: key ? '迎娶結婚宴' : '訂婚歸寧宴'
+      caption: key ? '迎娶結婚宴' : '訂婚歸寧宴'
     };
     this.navigator.element.pushPage(LoginPageComponent, { data });
   }
