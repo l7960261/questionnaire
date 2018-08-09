@@ -26,7 +26,7 @@ const facebookCustomConfig: AuthProviderWithCustomConfig = {
 };
 
 const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
-  providers: [facebookCustomConfig, AuthProvider.Password, AuthProvider.Phone],
+  providers: [facebookCustomConfig, AuthProvider.Google, AuthProvider.Password, AuthProvider.Phone],
   method: AuthMethods.Popup,
   credentialHelper: CredentialHelper.AccountChooser,
   autoUpgradeAnonymousUsers: true,
