@@ -15,8 +15,6 @@ export class AuthenticationService {
   user() {
     return this.afAuth.user.pipe(
       mergeMap((signInData: User) => {
-        console.log('signInData: ', signInData);
-
         if (!signInData) {
           return of(null);
         }

@@ -3,12 +3,17 @@
   <div class="center">{{caption}}</div>
   <div class="right">
     <ons-toolbar-button (click)="signOut()" *ngIf="isSignIn">
-      <ons-icon icon="ion-log-out"></ons-icon>
+      <ons-icon icon="fa-sign-out"></ons-icon>
+      登出
     </ons-toolbar-button>
   </div>
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
+  <p class="intro" *ngIf="!isSignIn">
+    <ons-icon icon="fa-star"></ons-icon>
+    請使用以下服務登入<br><br>
+  </p>
   <firebase-ui></firebase-ui>
 
   <ons-list class="contact-info" modifier="inset" *ngIf="isSignIn">
