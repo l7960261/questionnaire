@@ -12,7 +12,8 @@
     <ons-list>
       <ons-list-header>是否會出席婚宴</ons-list-header>
       <ons-list-item *ngFor="let attend of attends; let i = index">
-        <ons-radio name="attend" [attr.input-id]="'attend-' + i" [attr.value]="attend.value" formControlName="attend"></ons-radio>
+        <input type="radio" [attr.id]="'attend-' + i" [value]="attend.value" formControlName="attend" name="attend">
+        <!--<ons-radio name="attend" [attr.input-id]="'attend-' + i" [attr.value]="attend.value" formControlName="attend"></ons-radio>-->
         <label [attr.for]="'attend-' + i" class="center">
           {{ attend.text }}
         </label>

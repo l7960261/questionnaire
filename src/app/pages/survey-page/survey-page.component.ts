@@ -13,7 +13,7 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
   caption: string;
   uid: string;
   organizer: string;
-  attends = [{ text: '是', value: true }, { text: '否', value: false }];
+  attends = [{ text: '是', value: 1 }, { text: '否', value: 0 }];
   surveyForm: FormGroup;
   surveyRead$: Subscription;
   surveyWrite$: Subscription;
@@ -25,11 +25,13 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
     this.uid = this.params.data.uid;
     this.organizer = this.params.data.organizer;
     this.surveyForm = this.fb.group({
-      attend: [false]
+      attend: [0]
     });
 
     this.surveyRead$ = this.surveyService.read(this.uid, this.organizer).subscribe(data => {
-      console.log(data);
+      if (data) {
+        this.surveyForm.get('attend').setValue(data.attend);
+      }
     });
   }
 
