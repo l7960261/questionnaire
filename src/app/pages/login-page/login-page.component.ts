@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { OnsNavigator, Params } from 'ngx-onsenui';
 import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
 import { SurveyPageComponent } from '../survey-page/survey-page.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ons-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, OnDestroy {
   @ViewChild('carousel')
   carousel;
 
@@ -16,6 +17,7 @@ export class LoginPageComponent implements OnInit {
   data: any;
   isSignIn: boolean;
   user: IUser;
+  user$: Subscription;
 
   constructor(private navigator: OnsNavigator, private params: Params, private authericationService: AuthenticationService) {}
 
@@ -23,7 +25,7 @@ export class LoginPageComponent implements OnInit {
     this.data = this.params.data;
     this.caption = this.data.caption;
     this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
-    this.authericationService.user().subscribe(val => {
+    this.user$ = this.authericationService.user().subscribe(val => {
       if (val) {
         this.isSignIn = true;
         this.user = val;
@@ -31,6 +33,10 @@ export class LoginPageComponent implements OnInit {
         this.isSignIn = false;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.user$.unsubscribe();
   }
 
   signOut() {
