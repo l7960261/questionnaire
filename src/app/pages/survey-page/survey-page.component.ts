@@ -1,8 +1,8 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Params } from 'ngx-onsenui';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { SurveyService } from '../../core/survey/survey.service';
 import { Subscription } from 'rxjs';
+import { SurveyService } from '../../core/survey/survey.service';
 
 @Component({
   selector: 'ons-page',
