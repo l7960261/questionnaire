@@ -19,9 +19,9 @@ export class AuthenticationService {
           return of(null);
         }
 
-        const promise = this.afDb.database.ref('/users/' + signInData.uid).once('value');
+        const userRef = this.afDb.database.ref('/users/' + signInData.uid);
 
-        return fromPromise(promise)
+        return fromPromise(userRef.once('value'))
           .pipe(
             map(
               snapshot =>

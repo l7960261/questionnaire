@@ -39,6 +39,7 @@ export class LoginPageComponent implements OnInit {
 
   onNext() {
     this.authericationService.setUser(this.user);
-    this.navigator.element.pushPage(SurveyPageComponent, { data: this.data });
+    const data = Object.assign({}, this.data, { uid: this.user.uid });
+    this.navigator.element.pushPage(SurveyPageComponent, { data });
   }
 }

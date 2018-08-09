@@ -1,3 +1,15 @@
+.background {
+  background-color: #D38312;
+  text-align: center;
+}
+
+.note {
+  text-align: center;
+  margin: 15px 0;
+  color: #fff;
+  font-weight: bold;
+}
+
 .right {
   text-align: right;
   padding-top: 4px;
