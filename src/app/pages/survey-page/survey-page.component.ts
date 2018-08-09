@@ -20,4 +20,6 @@ export class SurveyPageComponent implements OnInit {
       attend: [false]
     });
   }
+
+  onSubmit() {}
 }
