@@ -1,6 +1,5 @@
 <ons-toolbar>
-  <div class="left"><ons-back-button>Back</ons-back-button></div>
-  <div class="center">{{caption}}</div>
+  <div class="center">婚禮出席統計</div>
   <div class="right">
     <ons-toolbar-button (click)="signOut()" *ngIf="isSignIn">
       <ons-icon icon="fa-sign-out"></ons-icon>
@@ -10,15 +9,12 @@
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
-  <p class="intro" *ngIf="!isSignIn">
-    <ons-icon icon="fa-star"></ons-icon>
-    請使用以下服務登入<br><br>
-  </p>
+  <aside class="intro">
+    <span *ngIf="!isSignIn">請登入以保存您的填寫資料</span>
+    <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>
+  </aside>
   <firebase-ui></firebase-ui>
 
-  <aside class="note" *ngIf="isSignIn">
-    Step 1 - 請填寫聯絡資訊
-  </aside>
   <ons-list modifier="inset" *ngIf="isSignIn">
     <ons-list-header>聯繫資訊</ons-list-header>
     <ons-list-item modifier="longdivider">
@@ -48,6 +44,6 @@
   </ons-list>
 
   <div class="operation" *ngIf="isSignIn">
-    <ons-button (click)="onNext()" modifier="material">繼續填寫</ons-button>
+    <ons-button (click)="onNext()" modifier="material">下一步</ons-button>
   </div>
 </div>

@@ -1,13 +1,12 @@
 .background {
   background-color: #D38312;
-  text-align: center;
 }
 
-.note {
+.intro {
   text-align: center;
-  margin: 15px 0;
-  color: #fff;
+  padding: 40px 0;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .right {

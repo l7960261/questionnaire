@@ -1,24 +1,11 @@
 .background {
   background-color: #085078;
-  text-align: center;
 }
 
-.intro {
-  text-align: center;
-  padding: 0 20px;
-  margin-top: 40px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.note {
-  text-align: center;
-  margin: 15px 0;
-  color: #fff;
-  font-weight: bold;
-}
-
+.intro,
 .operation {
   text-align: center;
-  margin: 10px;
+  padding: 40px 0;
+  font-weight: bold;
+  color: #ffffff;
 }

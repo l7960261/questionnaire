@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { OnsNavigator, Params } from 'ngx-onsenui';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { OnsNavigator } from 'ngx-onsenui';
 import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
-import { SurveyPageComponent } from '../survey-page/survey-page.component';
 import { Subscription } from 'rxjs';
+import { HomePageComponent } from '../home-page/home-page.component';
 
 @Component({
   selector: 'ons-page',
@@ -10,20 +10,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
-  @ViewChild('carousel')
-  carousel;
-
-  caption: string;
-  data: any;
   isSignIn: boolean;
   user: IUser;
   user$: Subscription;
 
-  constructor(private navigator: OnsNavigator, private params: Params, private authericationService: AuthenticationService) {}
+  constructor(private navigator: OnsNavigator, private authericationService: AuthenticationService) {}
 
   ngOnInit() {
-    this.data = this.params.data;
-    this.caption = this.data.caption;
     this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
     this.user$ = this.authericationService.user().subscribe(val => {
       if (val) {
@@ -45,7 +38,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
   onNext() {
     this.authericationService.setUser(this.user);
-    const data = Object.assign({}, this.data, { uid: this.user.uid });
-    this.navigator.element.pushPage(SurveyPageComponent, { data });
+    const data = { uid: this.user.uid };
+    this.navigator.element.pushPage(HomePageComponent, { data });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OnsNavigator } from 'ngx-onsenui';
-import { LoginPageComponent } from '../login-page/login-page.component';
+import { OnsNavigator, Params } from 'ngx-onsenui';
+import { SurveyPageComponent } from '../survey-page/survey-page.component';
 
 @Component({
   selector: 'ons-page',
@@ -8,17 +8,21 @@ import { LoginPageComponent } from '../login-page/login-page.component';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  constructor(private navigator: OnsNavigator) {}
+  uid: string;
 
-  ngOnInit() {}
+  constructor(private navigator: OnsNavigator, private params: Params) {}
+
+  ngOnInit() {
+    this.uid = this.params.data.uid;
+  }
 
   toLoginPage(key: number) {
-    // Push SecontPageComponent to `ons-navigator
     const data = {
       organizer: key ? 'taichung' : 'kaohsiung',
       date: key ? '20190202' : '20181212',
-      caption: key ? '迎娶結婚宴' : '訂婚歸寧宴'
+      caption: key ? '迎娶結婚宴' : '訂婚歸寧宴',
+      uid: this.uid
     };
-    this.navigator.element.pushPage(LoginPageComponent, { data });
+    this.navigator.element.pushPage(SurveyPageComponent, { data });
   }
 }
