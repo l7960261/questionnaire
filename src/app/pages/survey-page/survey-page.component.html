@@ -17,6 +17,10 @@
           {{ attend.text }}
         </label>
       </ons-list-item>
+      <ons-list-header>有什麼話想和我們說嗎</ons-list-header>
+      <ons-list-item>
+        <ons-input placeholder="請留下你想說的話" [(value)]="message"></ons-input>
+      </ons-list-item>
       <ons-list-header>是否需要寄送喜帖</ons-list-header>
       <ons-list-item *ngFor="let invitation of invitations; let i = index">
         <input type="radio" [attr.id]="'invitation-' + i" [value]="invitation.value" formControlName="invitation" name="invitation">
@@ -38,8 +42,23 @@
         </div>
       </ons-list-item>
       <ons-list-header>需要幾張兒童座椅</ons-list-header>
+      <ons-list-item>
+        <div class="left">
+          <span class="notification notification--material">{{childSeats}}</span>
+        </div>
+        <div class="center">
+          <ons-range modifier="material" [(value)]="childSeats"></ons-range>
+        </div>
+      </ons-list-item>
       <ons-list-header>共幾位吃素</ons-list-header>
-      <ons-list-header>有什麼話想和我們說嗎</ons-list-header>
+      <ons-list-item>
+        <div class="left">
+          <span class="notification notification--material">{{vegetarian}}</span>
+        </div>
+        <div class="center">
+          <ons-range modifier="material" [(value)]="vegetarian"></ons-range>
+        </div>
+      </ons-list-item>
     </ons-list>
   </form>
 </div>
