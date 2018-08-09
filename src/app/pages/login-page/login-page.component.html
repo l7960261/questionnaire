@@ -2,7 +2,7 @@
   <div class="left"><ons-back-button>Back</ons-back-button></div>
   <div class="center">{{caption}}</div>
   <div class="right">
-    <ons-toolbar-button (click)="signOut()" *ngIf="signInData">
+    <ons-toolbar-button (click)="signOut()" *ngIf="isSignIn">
       <ons-icon icon="ion-log-out"></ons-icon>
     </ons-toolbar-button>
   </div>
@@ -11,14 +11,14 @@
 <div class="content">
   <firebase-ui></firebase-ui>
 
-  <ons-list class="contact-info" modifier="inset" *ngIf="signInData">
+  <ons-list class="contact-info" modifier="inset" *ngIf="isSignIn">
     <ons-list-header>聯繫資料</ons-list-header>
     <ons-list-item modifier="longdivider">
       <div class="left">
         <ons-icon icon="ion-person"></ons-icon>
       </div>
       <div class="center">
-        <ons-input placeholder="你的大名" [(value)]="user.name"></ons-input>
+        <ons-input placeholder="你的大名" [(value)]="user.displayName"></ons-input>
       </div>
     </ons-list-item>
     <ons-list-item modifier="longdivider">
@@ -26,7 +26,7 @@
         <ons-icon icon="fa-phone"></ons-icon>
       </div>
       <div class="center">
-        <ons-input placeholder="連絡電話" [(value)]="user.phone"></ons-input>
+        <ons-input placeholder="連絡電話" [(value)]="user.phoneNumber"></ons-input>
       </div>
     </ons-list-item>
     <ons-list-item modifier="longdivider">
@@ -39,7 +39,7 @@
     </ons-list-item>
   </ons-list>
 
-  <div class="operation" *ngIf="signInData">
+  <div class="operation" *ngIf="isSignIn">
     <ons-button (click)="onNext()">下一步</ons-button>
   </div>
 </div>

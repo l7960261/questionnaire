@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Params } from 'ngx-onsenui';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
 
 @Component({
   selector: 'ons-page[login]',
@@ -14,44 +12,29 @@ export class LoginPageComponent implements OnInit {
   carousel;
 
   caption: string;
-  signInData: any;
+  isSignIn: boolean;
   user: IUser;
 
-  constructor(private _params: Params, private afAuth: AngularFireAuth, private afDb: AngularFireDatabase) {}
+  constructor(private _params: Params, private authericationService: AuthenticationService) {}
 
   ngOnInit() {
     this.caption = `${this._params.data.name} - ${this._params.data.date}`;
-    this.user = Object.assign({}, { name: '', phone: '', email: '' });
-
-    this.afAuth.user.subscribe(data => {
-      this.signInData = data;
-      console.log('signInData: ', this.signInData);
-
-      if (this.signInData) {
-        this.user.name = this.signInData.displayName;
-        this.user.phone = this.signInData.phoneNumber;
-        this.user.email = this.signInData.email;
-        this.user.uid = this.signInData.uid;
+    this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
+    this.authericationService.user().subscribe(val => {
+      if (val) {
+        this.isSignIn = true;
+        this.user = val;
+      } else {
+        this.isSignIn = false;
       }
     });
   }
 
   signOut() {
-    this.afAuth.auth.signOut();
+    this.authericationService.logout();
   }
 
   onNext() {
-    this.afDb.database.ref(`users/${this.user.uid}`).set({
-      name: this.user.name,
-      phone: this.user.phone,
-      email: this.user.email
-    });
+    this.authericationService.setUser(this.user);
   }
-}
-
-interface IUser {
-  name: string;
-  phone: string;
-  email: string;
-  uid?: string;
 }
