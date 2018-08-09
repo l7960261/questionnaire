@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Params } from 'ngx-onsenui';
+import { OnsNavigator, Params } from 'ngx-onsenui';
 import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
+import { SurveyPageComponent } from '../survey-page/survey-page.component';
 
 @Component({
-  selector: 'ons-page[login]',
+  selector: 'ons-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
@@ -15,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   isSignIn: boolean;
   user: IUser;
 
-  constructor(private _params: Params, private authericationService: AuthenticationService) {}
+  constructor(private navigator: OnsNavigator, private _params: Params, private authericationService: AuthenticationService) {}
 
   ngOnInit() {
     this.caption = `${this._params.data.name} - ${this._params.data.date}`;
@@ -36,5 +37,6 @@ export class LoginPageComponent implements OnInit {
 
   onNext() {
     this.authericationService.setUser(this.user);
+    this.navigator.element.pushPage(SurveyPageComponent);
   }
 }
