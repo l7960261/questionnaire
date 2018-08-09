@@ -28,7 +28,15 @@
       <ons-list-item>
         <ons-input placeholder="含郵遞區號" [(value)]="address"></ons-input>
       </ons-list-item>
-      <ons-list-header>共幾個人出席</ons-list-header>
+      <ons-list-header>共幾個人出席 (包含自己)</ons-list-header>
+      <ons-list-item>
+        <div class="left">
+          <span class="notification notification--material">{{members}}</span>
+        </div>
+        <div class="center">
+          <ons-range modifier="material" [(value)]="members"></ons-range>
+        </div>
+      </ons-list-item>
       <ons-list-header>需要幾張兒童座椅</ons-list-header>
       <ons-list-header>共幾位吃素</ons-list-header>
       <ons-list-header>有什麼話想和我們說嗎</ons-list-header>
