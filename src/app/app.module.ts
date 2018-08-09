@@ -8,13 +8,14 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SurveyPageComponent } from './pages/survey-page/survey-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, LoginPageComponent],
+  declarations: [AppComponent, HomePageComponent, LoginPageComponent, SurveyPageComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, CoreModule.forRoot(), SharedModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [HomePageComponent, LoginPageComponent]
+  entryComponents: [HomePageComponent, LoginPageComponent, SurveyPageComponent]
 })
 export class AppModule {}
