@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OnsenModule } from 'ngx-onsenui';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, OnsenModule],
-  exports: [FormsModule, OnsenModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, OnsenModule],
+  exports: [FormsModule, ReactiveFormsModule, OnsenModule],
   declarations: []
 })
 export class SharedModule {}

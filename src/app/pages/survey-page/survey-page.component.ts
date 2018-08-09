@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Params } from 'ngx-onsenui';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ons-page',
@@ -8,9 +9,15 @@ import { Params } from 'ngx-onsenui';
 })
 export class SurveyPageComponent implements OnInit {
   caption: string;
-  constructor(private params: Params) {}
+  attends = [{ text: '是', value: true }, { text: '否', value: false }];
+  surveyForm: FormGroup;
+
+  constructor(@Inject(FormBuilder) private fb: FormBuilder, private params: Params) {}
 
   ngOnInit() {
     this.caption = this.params.data.caption;
+    this.surveyForm = this.fb.group({
+      attend: [false]
+    });
   }
 }
