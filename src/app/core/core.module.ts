@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthenticationService } from './authentication/authentication.service';
 import { SurveyService } from './survey/survey.service';
 import { MessageService } from './message/message.service';
+import { MenuService } from './menu/menu.service';
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
@@ -60,7 +61,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [AuthenticationService, SurveyService, MessageService]
+      providers: [AuthenticationService, SurveyService, MessageService, MenuService]
     };
   }
 }

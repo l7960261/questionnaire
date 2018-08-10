@@ -4,6 +4,7 @@ import { OnsNavigator } from 'ngx-onsenui';
 import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { MessageService } from '../../core/message/message.service';
+import { MenuService } from '../../core/menu/menu.service';
 
 @Component({
   selector: 'ons-page',
@@ -20,7 +21,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   constructor(
     private navigator: OnsNavigator,
     private authericationService: AuthenticationService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private menuService: MenuService
   ) {}
 
   ngOnInit() {
@@ -53,5 +55,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.authericationService.setUser(this.user);
     const data = { uid: this.user.uid };
     this.navigator.element.pushPage(HomePageComponent, { data });
+  }
+
+  openMenu() {
+    this.menuService.open();
   }
 }
