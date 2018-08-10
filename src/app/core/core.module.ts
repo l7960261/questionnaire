@@ -19,7 +19,8 @@ const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   method: AuthMethods.Popup,
   credentialHelper: CredentialHelper.AccountChooser,
   autoUpgradeAnonymousUsers: true,
-  disableSignInSuccessCallback: true
+  disableSignInSuccessCallback: true,
+  signInSuccessUrl: 'https://questionnaire-69897.firebaseapp.com/'
 };
 
 @NgModule({
