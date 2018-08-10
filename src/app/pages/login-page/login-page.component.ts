@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { OnsNavigator } from 'ngx-onsenui';
 import { AuthenticationService, IUser } from '../../core/authentication/authentication.service';
-import { Subscription } from 'rxjs';
 import { HomePageComponent } from '../home-page/home-page.component';
+import { MessageService } from '../../core/message/message.service';
 
 @Component({
   selector: 'ons-page',
@@ -14,8 +15,13 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   loaded: boolean;
   user: IUser;
   user$: Subscription;
+  message$: Observable<any>;
 
-  constructor(private navigator: OnsNavigator, private authericationService: AuthenticationService) {}
+  constructor(
+    private navigator: OnsNavigator,
+    private authericationService: AuthenticationService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
@@ -31,6 +37,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.loaded = true;
     }, 1500);
+
+    this.message$ = this.messageService.getList();
   }
 
   ngOnDestroy(): void {
