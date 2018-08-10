@@ -81,7 +81,7 @@
 
 .overflow {
   width: 98vw;
-  height: 8em;
+  height: 10rem;
   overflow: hidden;
   position: fixed;
   bottom: 0.5rem;
