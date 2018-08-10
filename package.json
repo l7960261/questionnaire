@@ -26,6 +26,7 @@
     "firebase": "^5.3.1",
     "firebaseui": "^3.2.0",
     "firebaseui-angular": "^3.1.1",
+    "lodash": "^4.17.10",
     "ngx-onsenui": "^4.2.2",
     "onsenui": "^2.10.4",
     "rxjs": "^6.0.0",
