@@ -21,3 +21,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [ngx-onsenui](https://github.com/OnsenUI/OnsenUI/tree/master/bindings/angular2)
 
 [lodash](https://lodash.com/)
+
+[moment](https://momentjs.com/)

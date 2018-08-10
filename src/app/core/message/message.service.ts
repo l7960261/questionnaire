@@ -4,6 +4,7 @@ import { fromPromise } from 'rxjs/internal-compatibility';
 import { catchError, concatMap, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,7 @@ export class MessageService {
           const result = value;
           result.message = result.message || {};
           result.message[organizer] = message;
+          result.timestamp = moment().unix() * -1;
           delete result.uid;
 
           return fromPromise(messageRef.set(result));
@@ -36,27 +38,21 @@ export class MessageService {
 
   getList() {
     return this.afDb
-      .list<IMessage>('/messages')
+      .list<IMessage>('/messages', ref => ref.orderByChild('timestamp'))
       .valueChanges()
       .pipe(
         map(item =>
           _.flatten(
             item.filter(val => val.message.taichung || val.message.kaohsiung).map(val => {
               const result = [];
+              const base = { displayName: val.displayName, photoURL: val.photoURL || '/assets/images/music.svg' };
+
               if (val.message.kaohsiung) {
-                result.push({
-                  displayName: val.displayName,
-                  message: val.message.kaohsiung,
-                  photoURL: val.photoURL
-                });
+                result.push(Object.assign({}, base, { message: val.message.kaohsiung }));
               }
 
               if (val.message.taichung) {
-                result.push({
-                  displayName: val.displayName,
-                  message: val.message.taichung,
-                  photoURL: val.photoURL
-                });
+                result.push(Object.assign({}, base, { message: val.message.taichung }));
               }
 
               return result;
