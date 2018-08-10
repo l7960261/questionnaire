@@ -70,6 +70,15 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    if (
+      !_.isInteger(this.surveyForm.value.members) ||
+      !_.isInteger(this.surveyForm.value.childSeats) ||
+      !_.isInteger(this.surveyForm.value.vegetarian)
+    ) {
+      ons.notification.toast('請確認是否為整數', { timeout: 1000 });
+      return null;
+    }
+
     ons.notification.toast('處理中請稍後...', { timeout: 2000 });
 
     const data = Object.assign({}, this.surveyForm.value, {
