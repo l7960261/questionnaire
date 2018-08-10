@@ -7,5 +7,13 @@
   <section class="intro">
     <img class="fireworks" src="/assets/images/fireworks.svg">
     <h1 class="desc">非常感謝你的填寫！</h1>
+    <ons-fab ripple (click)="onComplete()">
+      <ons-icon icon="fa-check"></ons-icon>
+    </ons-fab>
+    <sub class="suffix">
+      將在
+      <strong [style.color]="'#ef4b80'">{{counter}}</strong>
+      秒後返回首頁
+    </sub>
   </section>
 </div>

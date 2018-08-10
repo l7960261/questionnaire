@@ -1,17 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { Params } from 'ngx-onsenui';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { OnsNavigator, Params } from 'ngx-onsenui';
+import { LoginPageComponent } from '../login-page/login-page.component';
+import { interval, Subscription } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'ons-page',
   templateUrl: './complete-page.component.html',
   styleUrls: ['./complete-page.component.css']
 })
-export class CompletePageComponent implements OnInit {
+export class CompletePageComponent implements OnInit, OnDestroy {
   caption: string;
+  counter$: Subscription;
+  counter: number;
 
-  constructor(private params: Params) {}
+  constructor(private params: Params, private navigator: OnsNavigator) {}
 
   ngOnInit() {
     this.caption = this.params.data.caption;
+    this.counter = 7;
+    this.counter$ = interval(1000)
+      .pipe(take(7))
+      .subscribe(
+        val => {
+          this.counter = 7 - (val + 1);
+        },
+        error => {},
+        () => {
+          this.onComplete();
+        }
+      );
+  }
+
+  ngOnDestroy(): void {
+    this.counter$.unsubscribe();
+  }
+
+  onComplete() {
+    this.navigator.element.resetToPage(LoginPageComponent);
   }
 }
