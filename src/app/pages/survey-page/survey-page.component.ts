@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SurveyService } from '../../core/survey/survey.service';
 import { CompletePageComponent } from '../complete-page/complete-page.component';
+import { mergeMap } from 'rxjs/operators';
+import { MessageService } from '../../core/message/message.service';
 
 @Component({
   selector: 'ons-page',
@@ -29,7 +31,8 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
     @Inject(FormBuilder) private fb: FormBuilder,
     private navigator: OnsNavigator,
     private params: Params,
-    private surveyService: SurveyService
+    private surveyService: SurveyService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -76,12 +79,16 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
       vegetarian: this.vegetarian,
       message: this.message
     });
-    this.surveyWrite$ = this.surveyService.write(data, this.organizer).subscribe((err: string) => {
-      if (err) {
-        alert(`${err} - 請聯繫翁聖凱`);
-      } else {
-        this.navigator.element.pushPage(CompletePageComponent, { data: this.params.data });
-      }
-    });
+
+    this.surveyWrite$ = this.surveyService
+      .write(data, this.organizer)
+      .pipe(mergeMap(() => this.messageService.setMessage(this.uid, this.organizer, this.message)))
+      .subscribe((err: string) => {
+        if (err) {
+          alert(`${err} - 請聯繫翁聖凱`);
+        } else {
+          this.navigator.element.pushPage(CompletePageComponent, { data: this.params.data });
+        }
+      });
   }
 }

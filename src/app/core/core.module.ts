@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
   AuthMethods,
   AuthProvider,
+  AuthProviderWithCustomConfig,
   CredentialHelper,
   FirebaseUIAuthConfig,
   FirebaseUIModule
@@ -13,9 +14,21 @@ import { environment } from '../../environments/environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthenticationService } from './authentication/authentication.service';
 import { SurveyService } from './survey/survey.service';
+import { MessageService } from './message/message.service';
+
+const facebookCustomConfig: AuthProviderWithCustomConfig = {
+  provider: AuthProvider.Facebook,
+  customConfig: {
+    scopes: ['email']
+    // customParameters: {
+    //   // Forces password re-entry.
+    //   auth_type: 'reauthenticate'
+    // }
+  }
+};
 
 const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
-  providers: [AuthProvider.Facebook],
+  providers: [facebookCustomConfig],
   method: AuthMethods.Popup,
   credentialHelper: CredentialHelper.AccountChooser,
   autoUpgradeAnonymousUsers: true,
@@ -47,7 +60,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [AuthenticationService, SurveyService]
+      providers: [AuthenticationService, SurveyService, MessageService]
     };
   }
 }
