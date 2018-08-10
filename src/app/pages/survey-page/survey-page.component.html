@@ -34,15 +34,15 @@
       </ons-list-item>
       <ons-list-header>共幾個人出席 (包含自己)</ons-list-header>
       <ons-list-item>
-        <ons-input type="number" placeholder="請包含自己" [(value)]="members"></ons-input>
+        <input class="input-number" type="number" placeholder="請包含自己" formControlName="members">
       </ons-list-item>
       <ons-list-header>需要幾張兒童座椅</ons-list-header>
       <ons-list-item>
-        <ons-input type="number" placeholder="如不需要，請輸入 0" [(value)]="childSeats"></ons-input>
+        <input class="input-number" type="number" placeholder="如不需要，請輸入 0" formControlName="childSeats">
       </ons-list-item>
       <ons-list-header>共幾位吃素</ons-list-header>
       <ons-list-item>
-        <ons-input type="number" placeholder="請一併考量同行親友" [(value)]="vegetarian"></ons-input>
+        <input class="input-number" type="number" placeholder="請一併考量同行親友" formControlName="vegetarian">
       </ons-list-item>
     </ons-list>
   </form>

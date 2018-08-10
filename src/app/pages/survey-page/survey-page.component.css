@@ -1,5 +1,5 @@
 .background {
-  background-color: #D38312;
+  background-color: #d38312;
 }
 
 .intro {
@@ -13,4 +13,12 @@
   text-align: right;
   padding-top: 4px;
   padding-right: 4px;
+}
+
+.input-number {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid;
+  font-size: 16px;
 }
