@@ -16,7 +16,7 @@ import { SurveyService } from './survey/survey.service';
 
 const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   providers: [AuthProvider.Facebook],
-  method: AuthMethods.Redirect,
+  method: AuthMethods.Popup,
   credentialHelper: CredentialHelper.AccountChooser,
   autoUpgradeAnonymousUsers: true,
   disableSignInSuccessCallback: true
