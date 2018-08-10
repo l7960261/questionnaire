@@ -9,6 +9,12 @@
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
+  <div class="app-loading" [class.hide]="loaded">
+    <div class="logo"></div>
+    <svg class="spinner" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
   <aside class="intro">
     <span *ngIf="!isSignIn">請登入以保存您的填寫資料</span>
     <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>

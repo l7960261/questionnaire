@@ -11,6 +11,7 @@ import { HomePageComponent } from '../home-page/home-page.component';
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
   isSignIn: boolean;
+  loaded: boolean;
   user: IUser;
   user$: Subscription;
 
@@ -26,6 +27,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.isSignIn = false;
       }
     });
+
+    setTimeout(() => {
+      this.loaded = true;
+    }, 1500);
   }
 
   ngOnDestroy(): void {
