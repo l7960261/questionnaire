@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../../core/menu/menu.service';
 
 @Component({
   selector: 'ons-page',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-page.component.css']
 })
 export class SidePageComponent implements OnInit {
+  constructor(private menuService: MenuService) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  home() {
+    this.menuService.index();
   }
 
+  gallery() {
+    this.menuService.goGallery();
+  }
 }

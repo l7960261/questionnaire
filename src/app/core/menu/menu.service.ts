@@ -5,14 +5,33 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuService {
-  subject = new Subject();
+  menuSubject = new Subject();
+  indexSubject = new Subject();
+  gallerySubject = new Subject();
+
   get menu$(): Observable<any> {
-    return this.subject.asObservable();
+    return this.menuSubject.asObservable();
+  }
+
+  get gallery$(): Observable<any> {
+    return this.gallerySubject.asObservable();
+  }
+
+  get index$(): Observable<any> {
+    return this.indexSubject.asObservable();
   }
 
   constructor() {}
 
   open() {
-    this.subject.next();
+    this.menuSubject.next();
+  }
+
+  index() {
+    this.indexSubject.next();
+  }
+
+  goGallery() {
+    this.gallerySubject.next();
   }
 }

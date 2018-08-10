@@ -12,6 +12,7 @@ import { SurveyPageComponent } from './pages/survey-page/survey-page.component';
 import { CompletePageComponent } from './pages/complete-page/complete-page.component';
 import { SidePageComponent } from './pages/side-page/side-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
+import { GalleryPageComponent } from './pages/gallery-page/gallery-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContentPageComponent } from './pages/content-page/content-page.componen
     SurveyPageComponent,
     CompletePageComponent,
     SidePageComponent,
-    ContentPageComponent
+    ContentPageComponent,
+    GalleryPageComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, CoreModule.forRoot(), SharedModule],
   providers: [],
@@ -33,7 +35,8 @@ import { ContentPageComponent } from './pages/content-page/content-page.componen
     SurveyPageComponent,
     CompletePageComponent,
     SidePageComponent,
-    ContentPageComponent
+    ContentPageComponent,
+    GalleryPageComponent
   ]
 })
 export class AppModule {}
