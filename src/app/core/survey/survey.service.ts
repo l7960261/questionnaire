@@ -25,7 +25,7 @@ export class SurveyService {
     );
   }
 
-  attendTotal() {
+  membersTotal() {
     const surveyRef = this.afDb.list('/surveys');
 
     return surveyRef
@@ -36,8 +36,8 @@ export class SurveyService {
           const kaohsiung = _.compact(_.map(items, 'kaohsiung'));
           return _.chain(taichung)
             .concat(kaohsiung)
-            .filter(val => val.attend)
-            .map(val => val.attend)
+            .filter(val => val.members)
+            .map(val => val.members)
             .sum()
             .value();
         })

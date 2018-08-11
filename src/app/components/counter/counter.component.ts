@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 export class CounterComponent implements OnInit {
   constructor(private surveyService: SurveyService) {}
 
-  attendTotal$: Observable<number>;
+  membersTotal$: Observable<number>;
 
   ngOnInit() {
-    this.attendTotal$ = this.surveyService.attendTotal();
+    this.membersTotal$ = this.surveyService.membersTotal();
   }
 }
