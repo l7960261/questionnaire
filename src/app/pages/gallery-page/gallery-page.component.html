@@ -9,8 +9,28 @@
 <div class="background"></div>
 <div class="content">
   <div class="wrapper">
-    <div class="showcase" *ngFor="let path of photos">
+    <div class="showcase" *ngFor="let path of photos" (click)="openModal(path)">
       <img src="{{path}}">
     </div>
   </div>
 </div>
+
+<ons-modal #modal >
+  <ons-fab position="right top" (click)="modal.hide()">
+    <ons-icon icon="fa-times"></ons-icon>
+  </ons-fab>
+  <ons-fab position="left bottom" (click)="carousel.prev()">
+    <ons-icon icon="fa-chevron-left"></ons-icon>
+  </ons-fab>
+  <ons-fab position="right bottom" (click)="carousel.next()">
+    <ons-icon icon="fa-chevron-right"></ons-icon>
+  </ons-fab>
+
+  <ons-carousel #carousel fullscreen swipeable auto-scroll overscrollable>
+    <ons-carousel-item class="modal-carousel" *ngFor="let path of photos" (click)="openModal(path)">
+      <div class="modal-case">
+        <img src="{{path}}">
+      </div>
+    </ons-carousel-item>
+  </ons-carousel>
+</ons-modal>
