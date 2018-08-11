@@ -1,3 +1,16 @@
+.toolbar {
+  background-color: #009688;
+}
+
+.back-button {
+  color: #fff;
+}
+
+.toolbar__center {
+  color: #fff;
+  font-weight: bold;
+}
+
 .background {
   background-color: #20c997;
 }
