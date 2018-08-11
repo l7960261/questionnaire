@@ -93,16 +93,13 @@
 }
 
 .overflow {
-  width: 98vw;
-  height: 15vh;
+  width: 100vw;
+  height: 20vh;
   overflow: hidden;
   position: absolute;
   z-index: -1;
-  bottom: 0.5rem;
-  left: 1vw;
+  bottom: 0;
   box-sizing: border-box;
-  border-radius: 4px;
-  background-color: #6688993d;
 }
 
 .overflow-title {

@@ -1,0 +1,35 @@
+.counter {
+  position: absolute;
+  z-index: -1;
+  background: rgb(23, 44, 66);
+  /*padding: 0.5rem 0;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  bottom: 0;
+  height: 20vh;
+  box-sizing: border-box;
+}
+
+.counter .ons-icon {
+  font-size: 30px;
+}
+
+.counter span {
+  width: 60px;
+  background: rgba(255, 255, 255, 0.8);
+  height: 2px;
+  display: block;
+  margin: 0 auto;
+}
+
+.counter p {
+  margin: 0.3rem 0;
+}
+
+.counter .number {
+  font-size: 24px;
+}
