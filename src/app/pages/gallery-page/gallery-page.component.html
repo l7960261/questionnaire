@@ -27,7 +27,7 @@
   </ons-fab>
 
   <ons-carousel #carousel fullscreen swipeable auto-scroll overscrollable>
-    <ons-carousel-item class="modal-carousel" *ngFor="let path of photos" (click)="openModal(path)">
+    <ons-carousel-item class="modal-carousel" *ngFor="let path of photos">
       <div class="modal-case">
         <img src="{{path}}">
       </div>
