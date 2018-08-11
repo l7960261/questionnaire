@@ -55,7 +55,7 @@
   </ons-list>
 
   <div class="operation" *ngIf="!isSignIn">
-    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的賓客可登入進行修改</sub></div>
+    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 請先登入進行填寫或修改問券內容</sub></div>
   </div>
   <div class="operation" *ngIf="isSignIn">
     <ons-button (click)="onNext()" modifier="material">下一步</ons-button>
