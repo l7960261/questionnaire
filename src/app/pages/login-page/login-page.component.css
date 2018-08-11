@@ -105,6 +105,15 @@
   background-color: #6688993d;
 }
 
+.overflow-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: right;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .marquee {
   top: 6em;
   position: relative;

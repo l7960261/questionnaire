@@ -59,16 +59,17 @@
   </div>
 
   <section class="overflow">
+    <aside class="overflow-title">祝福話語</aside>
     <div class="marquee">
-    <ons-list-item *ngFor="let m of message$ | async">
-      <div class="left">
-        <img class="list-item__thumbnail" src="{{m.photoURL}}">
-      </div>
-      <div class="center">
-        <span class="list-item__title">{{m.displayName}}</span>
-        <span class="list-item__subtitle">{{m.message}}</span>
-      </div>
-    </ons-list-item>
+      <ons-list-item *ngFor="let m of message$ | async">
+        <div class="left">
+          <img class="list-item__thumbnail" src="{{m.photoURL}}">
+        </div>
+        <div class="center">
+          <span class="list-item__title">{{m.displayName}}</span>
+          <span class="list-item__subtitle">{{m.message}}</span>
+        </div>
+      </ons-list-item>
     </div>
   </section>
 </div>
