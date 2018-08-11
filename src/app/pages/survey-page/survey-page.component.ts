@@ -40,8 +40,8 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
     this.organizer = this.params.data.organizer;
 
     this.surveyForm = this.fb.group({
-      attend: [1],
-      invitation: [1],
+      attend: [0],
+      invitation: [0],
       members: [0, Validators.compose([Validators.min(0), Validators.max(10)])],
       childSeats: [0, Validators.compose([Validators.min(0), Validators.max(10)])],
       vegetarian: [0, Validators.compose([Validators.min(0), Validators.max(10)])]
@@ -51,8 +51,8 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
 
     this.surveyRead$ = this.surveyService.read(this.uid, this.organizer).subscribe(data => {
       if (data) {
-        this.surveyForm.get('attend').setValue(_.isUndefined(data.attend) ? 1 : data.attend);
-        this.surveyForm.get('invitation').setValue(_.isUndefined(data.invitation) ? 1 : data.invitation);
+        this.surveyForm.get('attend').setValue(_.isUndefined(data.attend) ? 0 : data.attend);
+        this.surveyForm.get('invitation').setValue(_.isUndefined(data.invitation) ? 0 : data.invitation);
         this.address = data.address || '';
         this.surveyForm.get('members').setValue(_.isInteger(data.members) ? data.members : 0);
         this.surveyForm.get('childSeats').setValue(_.isInteger(data.childSeats) ? data.childSeats : 0);

@@ -21,7 +21,7 @@
     </svg>
   </div>
   <aside class="intro">
-    <span *ngIf="!isSignIn">婚宴前一個月可 <strong style="color: #f57c00;">隨時修改</strong> 問卷內容</span>
+    <span *ngIf="!isSignIn">我們要結婚了！誠摯邀請您參加！</span>
     <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>
   </aside>
   <firebase-ui></firebase-ui>
@@ -41,7 +41,7 @@
         <ons-icon icon="fa-phone"></ons-icon>
       </div>
       <div class="center">
-        <ons-input placeholder="連絡電話" [(value)]="user.phoneNumber"></ons-input>
+        <ons-input placeholder="連絡電話 (選填)" [(value)]="user.phoneNumber"></ons-input>
       </div>
     </ons-list-item>
     <ons-list-item modifier="longdivider">
@@ -54,6 +54,9 @@
     </ons-list-item>
   </ons-list>
 
+  <div class="operation" *ngIf="!isSignIn">
+    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的賓客可登入進行修改</sub></div>
+  </div>
   <div class="operation" *ngIf="isSignIn">
     <ons-button (click)="onNext()" modifier="material">下一步</ons-button>
     <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的賓客可點擊下一步進行修改</sub></div>
