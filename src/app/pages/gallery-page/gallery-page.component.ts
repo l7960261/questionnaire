@@ -13,7 +13,9 @@ export class GalleryPageComponent implements OnInit {
   photos = _.range(6).map(v => `/assets/images/weddingphotos/${v}.jpg`);
   @ViewChild('modal')
   modal: any;
-  modalImgPath: string;
+
+  @ViewChild('carousel')
+  carousel: any;
 
   ngOnInit() {}
 
@@ -21,8 +23,8 @@ export class GalleryPageComponent implements OnInit {
     this.menuService.open();
   }
 
-  openModal(path: string) {
-    this.modalImgPath = path;
+  openModal(index: number) {
+    this.carousel.nativeElement.setActiveIndex(index);
     this.modal.nativeElement.show();
   }
 }
