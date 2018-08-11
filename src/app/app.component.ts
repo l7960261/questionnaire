@@ -17,7 +17,17 @@ export class AppComponent {
 
   constructor(private menuService: MenuService) {
     this.menuService.menu$.subscribe(() => this.splitter.nativeElement.side.open());
-    this.menuService.index$.subscribe(() => this.splitter.nativeElement.content.load(ContentPageComponent));
-    this.menuService.gallery$.subscribe(() => this.splitter.nativeElement.content.load(GalleryPageComponent));
+    this.menuService.index$.subscribe(() => {
+      this.splitter.nativeElement.content.load(ContentPageComponent);
+      this.closeSlide();
+    });
+    this.menuService.gallery$.subscribe(() => {
+      this.splitter.nativeElement.content.load(GalleryPageComponent);
+      this.closeSlide();
+    });
+  }
+
+  closeSlide() {
+    this.splitter.nativeElement.side.close();
   }
 }
