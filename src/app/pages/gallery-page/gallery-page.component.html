@@ -7,4 +7,10 @@
   <div class="center">婚紗畫廊</div>
 </ons-toolbar>
 <div class="background"></div>
-<div class="content"></div>
+<div class="content">
+  <div class="wrapper">
+    <div class="showcase" *ngFor="let path of photos">
+      <img src="{{path}}">
+    </div>
+  </div>
+</div>

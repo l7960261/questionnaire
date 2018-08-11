@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'ons-page',
@@ -8,6 +9,8 @@ import { MenuService } from '../../core/menu/menu.service';
 })
 export class GalleryPageComponent implements OnInit {
   constructor(private menuService: MenuService) {}
+
+  photos = _.range(6).map(v => `/assets/images/weddingphotos/${v}.jpg`);
 
   ngOnInit() {}
 

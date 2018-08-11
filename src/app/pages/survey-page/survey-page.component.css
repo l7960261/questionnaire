@@ -1,5 +1,6 @@
 .toolbar {
   background-color: #f57c00;
+  background-image: none;
 }
 
 .back-button {
@@ -12,7 +13,7 @@
 }
 
 .background {
-  background-color: #d38312;
+  background-color: #f57c00;
 }
 
 .intro {
