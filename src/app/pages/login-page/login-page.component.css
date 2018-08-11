@@ -88,16 +88,16 @@
 .intro,
 .operation {
   text-align: center;
-  padding: 40px 0;
-  font-weight: bold;
+  padding: 1rem 0;
   color: #ffffff;
 }
 
 .overflow {
   width: 98vw;
-  height: 10rem;
+  height: 15vh;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
+  z-index: -1;
   bottom: 0.5rem;
   left: 1vw;
   box-sizing: border-box;
@@ -115,7 +115,6 @@
 }
 
 .marquee {
-  top: 6em;
   position: relative;
   box-sizing: border-box;
   animation: marquee 10s linear infinite;
@@ -128,10 +127,10 @@
 /* Make it move! */
 @keyframes marquee {
   0% {
-    top: 8em;
+    top: 8vh;
   }
   100% {
-    top: -50vh;
+    top: -100vh;
   }
 }
 

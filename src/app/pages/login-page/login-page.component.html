@@ -21,7 +21,7 @@
     </svg>
   </div>
   <aside class="intro">
-    <span *ngIf="!isSignIn">請登入方便日後修改您的填寫資料</span>
+    <span *ngIf="!isSignIn">婚宴前一個月可 <strong style="color: #f57c00;">隨時修改</strong> 問卷內容</span>
     <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>
   </aside>
   <firebase-ui></firebase-ui>
@@ -56,6 +56,7 @@
 
   <div class="operation" *ngIf="isSignIn">
     <ons-button (click)="onNext()" modifier="material">下一步</ons-button>
+    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的人點擊下一步可進行修改</sub></div>
   </div>
 
   <section class="overflow">

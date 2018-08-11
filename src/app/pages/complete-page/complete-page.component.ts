@@ -18,12 +18,12 @@ export class CompletePageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.caption = this.params.data.caption;
-    this.counter = 7;
+    this.counter = 10;
     this.counter$ = interval(1000)
-      .pipe(take(7))
+      .pipe(take(10))
       .subscribe(
         val => {
-          this.counter = 7 - (val + 1);
+          this.counter = 10 - (val + 1);
         },
         error => {},
         () => {
