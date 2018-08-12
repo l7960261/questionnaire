@@ -8,7 +8,7 @@
   color: rgba(255, 255, 255, 0.8);
   width: 100%;
   bottom: 0;
-  height: 40vh;
+  height: 50vh;
   box-sizing: border-box;
   transition: height 1s ease-in-out;
 }

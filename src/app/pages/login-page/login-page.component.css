@@ -95,7 +95,7 @@
 .overflow {
   background: rgba(23, 44, 66, 0.5);
   width: 100vw;
-  height: 40vh;
+  height: 50vh;
   overflow: hidden;
   position: absolute;
   z-index: -1;
