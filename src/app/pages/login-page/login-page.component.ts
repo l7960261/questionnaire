@@ -30,7 +30,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.user$ = this.authericationService.user().subscribe(val => {
       if (val) {
         this.isSignIn = true;
-        this.user = val;
+        this.user.displayName = val.displayName || '';
+        this.user.phoneNumber = val.phoneNumber || '';
+        this.user.email = val.email || '';
+        this.user.uid = val.uid || null;
+        this.user.photoURL = val.photoURL || '';
       } else {
         this.isSignIn = false;
       }
