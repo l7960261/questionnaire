@@ -9,7 +9,7 @@
   <form [formGroup]="surveyForm">
     <ons-list>
       <ons-list-header>是否會出席婚宴</ons-list-header>
-      <ons-list-item *ngFor="let attend of attends; let i = index">
+      <ons-list-item *ngFor="let attend of attends; let i = index" modifier="longdivider">
         <input type="radio" [attr.id]="'attend-' + i" [value]="attend.value" formControlName="attend" name="attend">
         <label [attr.for]="'attend-' + i" class="center">
           {{ attend.text }}
@@ -20,7 +20,7 @@
         <ons-input placeholder="請留下你想說的話" [(value)]="message"></ons-input>
       </ons-list-item>
       <ons-list-header>是否需要寄送喜帖</ons-list-header>
-      <ons-list-item *ngFor="let invitation of invitations; let i = index">
+      <ons-list-item *ngFor="let invitation of invitations; let i = index" modifier="longdivider">
         <input type="radio" [attr.id]="'invitation-' + i" [value]="invitation.value" formControlName="invitation" name="invitation">
         <label [attr.for]="'invitation-' + i" class="center">
           {{ invitation.text }}
