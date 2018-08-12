@@ -1,6 +1,10 @@
 .toolbar {
-  background-color: #085078;
-  background-image: none;
+  background-image: url('/assets/images/bg0.jpg');
+  background-size: cover;
+  box-shadow: 2px 2px 10px 2px #373b44;
+  -webkit-box-shadow: 2px 2px 10px 2px #373b44;
+  -moz-box-shadow: 2px 2px 10px 2px #373b44;
+  -o-box-shadow: 2px 2px 10px 2px #373b44;
 }
 
 .toolbar-button,
@@ -82,18 +86,19 @@
 }
 
 .background {
-  background-color: #085078;
+  background-image: url('/assets/images/bg0.jpg');
+  background-size: cover;
 }
 
 .intro,
 .operation {
   text-align: center;
+  font-weight: 600;
   padding: 1rem 0;
   color: #ffffff;
 }
 
 .overflow {
-  background: rgba(23, 44, 66, 0.5);
   width: 100vw;
   height: 50vh;
   overflow: hidden;
