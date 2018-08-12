@@ -1,5 +1,5 @@
 .toolbar {
-  background-color: rgb(88, 145, 200);
+  background-color: rgb(198, 63, 56);
   background-image: none;
   box-shadow: 1px 1px 10px 1px #373b44;
   -webkit-box-shadow: 1px 1px 10px 1px #373b44;
@@ -17,10 +17,10 @@
 }
 
 .background {
-  background: linear-gradient(180deg, rgba(88, 145, 200, 1) 35%, rgba(68, 107, 162, 0.8) 60%);
-  background: -moz-linear-gradient(180deg, rgba(88, 145, 200, 1) 35%, rgba(68, 107, 162, 0.8) 60%);
-  background: -webkit-linear-gradient(180deg, rgba(88, 145, 200, 1) 35%, rgba(68, 107, 162, 0.8) 60%);
-  background: -o-linear-gradient(180deg, rgba(88, 145, 200, 1) 35%, rgba(68, 107, 162, 0.8) 60%);
+  background: linear-gradient(180deg, rgba(198, 63, 56, 1) 35%, rgba(236, 169, 135, 0.8) 60%);
+  background: -moz-linear-gradient(180deg, rgba(198, 63, 56, 1) 35%, rgba(236, 169, 135, 0.8) 60%);
+  background: -webkit-linear-gradient(180deg, rgba(198, 63, 56, 1) 35%, rgba(236, 169, 135, 0.8) 60%);
+  background: -o-linear-gradient(180deg, rgba(198, 63, 56, 1) 35%, rgba(236, 169, 135, 0.8) 60%);
 }
 
 .intro {
