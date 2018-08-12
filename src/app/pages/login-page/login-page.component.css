@@ -93,13 +93,19 @@
 }
 
 .overflow {
+  background: rgba(23, 44, 66, 0.5);
   width: 100vw;
-  height: 20vh;
+  height: 40vh;
   overflow: hidden;
   position: absolute;
   z-index: -1;
   bottom: 0;
   box-sizing: border-box;
+  transition: height 1s ease-in-out;
+}
+
+.less-height {
+  height: 25vh;
 }
 
 .overflow-title {
@@ -114,7 +120,7 @@
 .marquee {
   position: relative;
   box-sizing: border-box;
-  animation: marquee 10s linear infinite;
+  animation: marquee 15s linear infinite;
 }
 
 .marquee:hover {
@@ -127,7 +133,7 @@
     top: 8vh;
   }
   100% {
-    top: -100vh;
+    top: -80vh;
   }
 }
 
@@ -138,4 +144,8 @@
 .list-item__title,
 .list-item__subtitle {
   color: #ffffff;
+}
+
+.list-item__subtitle {
+  opacity: 0.9;
 }

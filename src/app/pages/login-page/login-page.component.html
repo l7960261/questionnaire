@@ -64,7 +64,7 @@
 
   <app-counter></app-counter>
 
-  <section class="overflow">
+  <section class="overflow" [class.less-height]="isSignIn">
     <aside class="overflow-title">祝福話語</aside>
     <div class="marquee">
       <ons-list-item *ngFor="let m of message$ | async">
