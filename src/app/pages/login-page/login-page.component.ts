@@ -60,4 +60,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   openMenu() {
     this.menuService.open();
   }
+
+  surveyMessage() {
+    this.menuService.goSurveyMessage();
+  }
 }

@@ -18,4 +18,8 @@ export class SidePageComponent implements OnInit {
   gallery() {
     this.menuService.goGallery();
   }
+
+  surveyMessage() {
+    this.menuService.goSurveyMessage();
+  }
 }

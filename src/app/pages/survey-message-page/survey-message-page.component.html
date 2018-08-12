@@ -1,0 +1,21 @@
+<ons-toolbar>
+  <div class="left">
+    <div class="back-button" (click)="home()">
+      <ons-icon icon="fa-chevron-left"></ons-icon>
+      Back
+    </div>
+  </div>
+  <div class="center">留言語錄</div>
+</ons-toolbar>
+<div class="background"></div>
+<div class="content">
+  <ons-list-item *ngFor="let m of message$ | async">
+    <div class="left">
+      <img class="list-item__thumbnail" src="{{m.photoURL}}">
+    </div>
+    <div class="center">
+      <span class="list-item__title">{{m.displayName}}</span>
+      <span class="list-item__subtitle">{{m.message}}</span>
+    </div>
+  </ons-list-item>
+</div>

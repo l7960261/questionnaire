@@ -13,10 +13,10 @@
 }
 
 .background {
-  background: linear-gradient(0deg, rgba(32, 201, 151, 1)35%, rgba(75, 212, 198, 0.8)60%);
-  background: -moz-linear-gradient(0deg, rgba(32, 201, 151, 1)35%, rgba(75, 212, 198, 0.8)60%);
-  background: -webkit-linear-gradient(0deg, rgba(32, 201, 151, 1)35%, rgba(75, 212, 198, 0.8)60%);
-  background: -o-linear-gradient(0deg, rgba(32, 201, 151, 1)35%, rgba(75, 212, 198, 0.8)60%);
+  background: linear-gradient(0deg, rgba(32, 201, 151, 1) 35%, rgba(75, 212, 198, 0.8) 60%);
+  background: -moz-linear-gradient(0deg, rgba(32, 201, 151, 1) 35%, rgba(75, 212, 198, 0.8) 60%);
+  background: -webkit-linear-gradient(0deg, rgba(32, 201, 151, 1) 35%, rgba(75, 212, 198, 0.8) 60%);
+  background: -o-linear-gradient(0deg, rgba(32, 201, 151, 1) 35%, rgba(75, 212, 198, 0.8) 60%);
 }
 
 .intro {

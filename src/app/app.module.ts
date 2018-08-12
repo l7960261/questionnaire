@@ -14,6 +14,7 @@ import { SidePageComponent } from './pages/side-page/side-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { GalleryPageComponent } from './pages/gallery-page/gallery-page.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { SurveyMessagePageComponent } from './pages/survey-message-page/survey-message-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CounterComponent } from './components/counter/counter.component';
     SidePageComponent,
     ContentPageComponent,
     GalleryPageComponent,
-    CounterComponent
+    CounterComponent,
+    SurveyMessagePageComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, CoreModule.forRoot(), SharedModule],
   providers: [],
@@ -38,7 +40,8 @@ import { CounterComponent } from './components/counter/counter.component';
     CompletePageComponent,
     SidePageComponent,
     ContentPageComponent,
-    GalleryPageComponent
+    GalleryPageComponent,
+    SurveyMessagePageComponent
   ]
 })
 export class AppModule {}

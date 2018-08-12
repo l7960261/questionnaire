@@ -119,9 +119,13 @@
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  text-align: right;
-  padding-top: 0.5rem;
-  padding-right: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  right: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  top: 0;
+  box-shadow: 1px 1px 1px 1px rgba(1, 10, 1, 0.2);
 }
 
 .marquee {

@@ -8,6 +8,7 @@ export class MenuService {
   menuSubject = new Subject();
   indexSubject = new Subject();
   gallerySubject = new Subject();
+  surveyMessageSubject = new Subject();
 
   get menu$(): Observable<any> {
     return this.menuSubject.asObservable();
@@ -19,6 +20,10 @@ export class MenuService {
 
   get index$(): Observable<any> {
     return this.indexSubject.asObservable();
+  }
+
+  get surveyMessage$(): Observable<any> {
+    return this.surveyMessageSubject.asObservable();
   }
 
   constructor() {}
@@ -33,5 +38,9 @@ export class MenuService {
 
   goGallery() {
     this.gallerySubject.next();
+  }
+
+  goSurveyMessage() {
+    this.surveyMessageSubject.next();
   }
 }
