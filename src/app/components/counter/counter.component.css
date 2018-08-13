@@ -7,14 +7,9 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   width: 100%;
-  bottom: 0;
-  height: 50vh;
-  box-sizing: border-box;
-  transition: height 1s ease-in-out;
-}
-
-.less-height {
+  bottom: 25vh;
   height: 25vh;
+  box-sizing: border-box;
 }
 
 .counter .ons-icon {

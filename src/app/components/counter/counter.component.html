@@ -1,4 +1,4 @@
-<div class="counter" [class.less-height]="isSignIn">
+<div class="counter" *ngIf="!isSignIn">
   <section>
     <ons-icon icon="fa-smile-o"></ons-icon>
     <p class="number">{{ membersTotal$ | async }}</p>

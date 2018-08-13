@@ -64,7 +64,7 @@
 
   <app-counter></app-counter>
 
-  <section class="overflow" [class.less-height]="isSignIn">
+  <section class="overflow">
     <aside class="overflow-title" (click)="surveyMessage()">留言語錄</aside>
     <div class="marquee">
       <ons-list-item *ngFor="let m of message$ | async">
