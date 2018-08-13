@@ -1,5 +1,5 @@
 .toolbar {
-  background-color: #67B26F;
+  background-color: #67b26f;
   background-image: none;
   box-shadow: 1px 1px 10px 1px #373b44;
   -webkit-box-shadow: 1px 1px 10px 1px #373b44;
@@ -17,9 +17,9 @@
 }
 
 .background {
-  background: #67B26F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #67b26f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #4ca2cd, #67b26f); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #4ca2cd, #67b26f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .list-item__center {
