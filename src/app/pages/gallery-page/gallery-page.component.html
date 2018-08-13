@@ -8,11 +8,18 @@
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
+
+  <aside class="intro">
+    <ons-progress-circular indeterminate></ons-progress-circular>
+    <span>陸續更新</span>
+  </aside>
+
   <div class="wrapper">
     <div class="showcase" *ngFor="let path of photos; let idx = index" (click)="openModal(idx)">
       <img src="{{path}}">
     </div>
   </div>
+
 </div>
 
 <ons-modal #modal>
