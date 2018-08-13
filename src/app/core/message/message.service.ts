@@ -43,9 +43,14 @@ export class MessageService {
       .pipe(
         map(item =>
           _.flatten(
-            item.filter(val => val.message.taichung || val.message.kaohsiung).map(val => {
+            item.map(val => {
               const result = [];
-              const base = { displayName: val.displayName, photoURL: val.photoURL || '/assets/images/music.svg' };
+              const base = {
+                displayName: val.displayName,
+                photoURL: val.photoURL || '/assets/images/music.svg',
+                date: moment.unix(val.timestamp * -1).format('YYYY/MM/DD HH:mm:ss'),
+                message: '已填寫'
+              };
 
               if (val.message.kaohsiung) {
                 result.push(Object.assign({}, base, { message: val.message.kaohsiung }));
@@ -53,6 +58,10 @@ export class MessageService {
 
               if (val.message.taichung) {
                 result.push(Object.assign({}, base, { message: val.message.taichung }));
+              }
+
+              if (result.length === 0) {
+                result.push(Object.assign({}, base));
               }
 
               return result;
@@ -69,4 +78,5 @@ interface IMessage {
   message: { taichung?: string; kaohsiung?: string };
   phoneNumber: string;
   photoURL: string;
+  timestamp: number;
 }
