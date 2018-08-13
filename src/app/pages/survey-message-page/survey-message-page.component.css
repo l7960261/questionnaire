@@ -1,5 +1,5 @@
 .toolbar {
-  background-color: rgba(44, 190, 207, 1);
+  background-color: #67B26F;
   background-image: none;
   box-shadow: 1px 1px 10px 1px #373b44;
   -webkit-box-shadow: 1px 1px 10px 1px #373b44;
@@ -17,10 +17,9 @@
 }
 
 .background {
-  background: linear-gradient(0deg, rgba(51, 229, 230, 0.5) 37%, rgba(44, 190, 207, 1) 60%);
-  background: -moz-linear-gradient(0deg, rgba(51, 229, 230, 0.5) 37%, rgba(44, 190, 207, 1) 60%);
-  background: -webkit-linear-gradient(0deg, rgba(51, 229, 230, 0.5) 37%, rgba(44, 190, 207, 1) 60%);
-  background: -o-linear-gradient(0deg, rgba(51, 229, 230, 0.5) 37%, rgba(44, 190, 207, 1) 60%);
+  background: #67B26F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .list-item__center {
@@ -29,7 +28,7 @@
 
 .list-item__title,
 .list-item__subtitle {
-  color: #333333;
+  color: #fff;
 }
 
 .list-item__subtitle {
