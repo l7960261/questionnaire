@@ -21,10 +21,11 @@
     </svg>
   </div>
   <aside class="intro">
-    <span *ngIf="!isSignIn">我們要結婚了！誠摯邀請您參加！</span>
+    <!--<span *ngIf="!isSignIn">我們要結婚了！誠摯邀請您參加！</span>-->
+    <span *ngIf="!isSignIn">Facebook 應用程式審查中 - 擇期重新開放</span>
     <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>
   </aside>
-  <firebase-ui></firebase-ui>
+  <firebase-ui (signInSuccessWithAuthResult)="firebaseSuccessCallback($event)"></firebase-ui>
 
   <ons-list modifier="inset" *ngIf="isSignIn">
     <ons-list-header>聯繫資訊</ons-list-header>
@@ -69,10 +70,10 @@
     <div class="marquee">
       <ons-list-item *ngFor="let m of message$ | async">
         <div class="left">
-          <img class="list-item__thumbnail" src="{{m.photoURL}}">
+          <img class="list-item__thumbnail" src="{{m.photoURL}}" (click)="fbPage(m.profile)">
         </div>
         <div class="center">
-          <span class="list-item__title">{{m.displayName}}</span>
+          <span class="list-item__title" (click)="fbPage(m.profile)">{{m.displayName}}</span>
           <span class="list-item__subtitle">{{m.message}}</span>
         </div>
       </ons-list-item>

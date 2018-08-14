@@ -11,10 +11,10 @@
 <div class="content">
   <ons-list-item *ngFor="let m of message$ | async">
     <div class="left">
-      <img class="list-item__thumbnail" src="{{m.photoURL}}">
+      <img class="list-item__thumbnail" src="{{m.photoURL}}" (click)="fbPage(m.profile)">
     </div>
     <div class="center">
-      <span class="list-item__title">{{m.displayName}}</span>
+      <span class="list-item__title" (click)="fbPage(m.profile)">{{m.displayName}}</span>
       <span class="list-item__subtitle">{{m.message}} <small> - {{m.date}}</small></span>
     </div>
   </ons-list-item>

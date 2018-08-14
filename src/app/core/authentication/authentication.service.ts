@@ -54,4 +54,5 @@ export interface IUser {
   phoneNumber: string;
   uid: string;
   photoURL: string;
+  profile: string;
 }

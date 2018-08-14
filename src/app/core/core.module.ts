@@ -20,7 +20,7 @@ import { MenuService } from './menu/menu.service';
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
   customConfig: {
-    scopes: ['email']
+    scopes: ['email', 'user_link']
     // customParameters: {
     //   // Forces password re-entry.
     //   auth_type: 'reauthenticate'
@@ -32,8 +32,7 @@ const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
   providers: [facebookCustomConfig],
   method: AuthMethods.Redirect,
   credentialHelper: CredentialHelper.AccountChooser,
-  autoUpgradeAnonymousUsers: true,
-  disableSignInSuccessCallback: true
+  autoUpgradeAnonymousUsers: true
 };
 
 @NgModule({

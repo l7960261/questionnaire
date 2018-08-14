@@ -5,6 +5,8 @@ import { AuthenticationService, IUser } from '../../core/authentication/authenti
 import { HomePageComponent } from '../home-page/home-page.component';
 import { MessageService } from '../../core/message/message.service';
 import { MenuService } from '../../core/menu/menu.service';
+import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'ons-page',
@@ -26,7 +28,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '' });
+    this.user = Object.assign({}, { displayName: '', phoneNumber: '', email: '', uid: null, photoURL: '', profile: '' });
     this.user$ = this.authericationService.user().subscribe(val => {
       if (val) {
         this.isSignIn = true;
@@ -44,7 +46,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       this.loaded = true;
     }, 1500);
 
-    this.message$ = this.messageService.getList();
+    // this.message$ = this.messageService.getList();  // For Prod
+    this.message$ = this.messageService.getList().pipe(map(items => items.filter(item => item.profile))); // For 審查
   }
 
   ngOnDestroy(): void {
@@ -67,5 +70,16 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
   surveyMessage() {
     this.menuService.goSurveyMessage();
+  }
+
+  firebaseSuccessCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
+    const userProfile = signInSuccessData.authResult.additionalUserInfo.profile['link'];
+    this.user.profile = userProfile;
+  }
+
+  fbPage(url: string) {
+    if (url) {
+      location.href = url;
+    }
   }
 }

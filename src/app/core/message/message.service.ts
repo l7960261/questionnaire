@@ -49,7 +49,8 @@ export class MessageService {
                 displayName: val.displayName,
                 photoURL: val.photoURL || '/assets/images/music.svg',
                 date: moment.unix(val.timestamp * -1).format('YYYY/MM/DD HH:mm:ss'),
-                message: '已填寫'
+                message: '已填寫',
+                profile: val.profile || ''
               };
 
               if (val.message.kaohsiung) {
@@ -79,4 +80,5 @@ interface IMessage {
   phoneNumber: string;
   photoURL: string;
   timestamp: number;
+  profile: string;
 }
