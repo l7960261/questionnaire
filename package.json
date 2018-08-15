@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "apiKey": "node tasks/firebaseKey.js"
+    "apiKey": "node tasks/firebaseKey.js",
+    "functions": "cd functions && npm install"
   },
   "private": true,
   "dependencies": {
