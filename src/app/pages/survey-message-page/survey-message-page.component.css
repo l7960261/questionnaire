@@ -34,3 +34,8 @@
 .list-item__subtitle {
   opacity: 0.9;
 }
+
+.link {
+  cursor: pointer;
+  font-weight: bold;
+}

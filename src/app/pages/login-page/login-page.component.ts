@@ -6,7 +6,6 @@ import { HomePageComponent } from '../home-page/home-page.component';
 import { MessageService } from '../../core/message/message.service';
 import { MenuService } from '../../core/menu/menu.service';
 import { FirebaseUISignInSuccessWithAuthResult } from 'firebaseui-angular';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'ons-page',
@@ -46,8 +45,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       this.loaded = true;
     }, 1500);
 
-    // this.message$ = this.messageService.getList();  // For Prod
-    this.message$ = this.messageService.getList().pipe(map(items => items.filter(item => item.profile))); // For 審查
+    this.message$ = this.messageService.getList();
   }
 
   ngOnDestroy(): void {

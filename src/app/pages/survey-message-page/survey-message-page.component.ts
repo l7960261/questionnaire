@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
 import { MessageService } from '../../core/message/message.service';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'ons-page',
@@ -15,8 +14,7 @@ export class SurveyMessagePageComponent implements OnInit {
   constructor(private menuService: MenuService, private messageService: MessageService) {}
 
   ngOnInit() {
-    // this.message$ = this.messageService.getList();  // For Prod
-    this.message$ = this.messageService.getList().pipe(map(items => items.filter(item => item.profile))); // For 審查
+    this.message$ = this.messageService.getList();
   }
 
   home() {
