@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
-import { interval, of } from 'rxjs';
+import { combineLatest, interval, of } from 'rxjs';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -32,7 +32,7 @@ export class SurveyService {
       .valueChanges()
       .pipe(
         map(items => {
-          const taichung = _.compact(_.map(items, 'taichung'));
+          const taichung = _.compact(_.map(items, 'organizer'));
           const kaohsiung = _.compact(_.map(items, 'kaohsiung'));
           return _.chain(taichung)
             .concat(kaohsiung)
@@ -43,5 +43,27 @@ export class SurveyService {
         })
       )
       .pipe(switchMap(sum => interval(100).pipe(take(sum + 1))));
+  }
+
+  organizer(organizer: string) {
+    const surveyRef = this.afDb.list('/surveys');
+    const userRef = this.afDb.list('/users');
+
+    return combineLatest(surveyRef.valueChanges(), userRef.valueChanges()).pipe(
+      map(latestValues => {
+        const [one, two] = latestValues;
+        const taichungs = _.compact(_.map(one, organizer));
+
+        return _.chain(taichungs)
+          .map(item => {
+            const user = _.chain(two)
+              .filter(two_item => two_item.uid === item.uid)
+              .head()
+              .value();
+            return _.assign({}, item, user);
+          })
+          .value();
+      })
+    );
   }
 }
