@@ -36,6 +36,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.user.email = val.email || '';
         this.user.uid = val.uid || null;
         this.user.photoURL = val.photoURL || '';
+
+        if (val.profile) {
+          this.user.profile = val.profile;
+        }
       } else {
         this.isSignIn = false;
       }
