@@ -11,6 +11,9 @@
   <ngx-datatable
     #table
     class="material expandable"
+    [summaryRow]="true"
+    [summaryPosition]="'bottom'"
+    [summaryHeight]="'auto'"
     [rows]="rows$ | async"
     [columns]="columns"
     [columnMode]="'force'"
