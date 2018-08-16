@@ -32,7 +32,7 @@ export class SurveyService {
       .valueChanges()
       .pipe(
         map(items => {
-          const taichung = _.compact(_.map(items, 'organizer'));
+          const taichung = _.compact(_.map(items, 'taichung'));
           const kaohsiung = _.compact(_.map(items, 'kaohsiung'));
           return _.chain(taichung)
             .concat(kaohsiung)
@@ -52,9 +52,9 @@ export class SurveyService {
     return combineLatest(surveyRef.valueChanges(), userRef.valueChanges()).pipe(
       map(latestValues => {
         const [one, two] = latestValues;
-        const taichungs = _.compact(_.map(one, organizer));
+        const list = _.compact(_.map(one, organizer));
 
-        return _.chain(taichungs)
+        return _.chain(list)
           .map(item => {
             const user = _.chain(two)
               .filter(two_item => two_item.uid === item.uid)
