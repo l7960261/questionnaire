@@ -1,12 +1,20 @@
 <ons-toolbar>
   <div class="left">
-    <div class="back-button" (click)="home()">
-      <ons-icon icon="fa-chevron-left"></ons-icon>
-      Back
-    </div>
+    <ons-toolbar-button (click)="openMenu()">
+      <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+    </ons-toolbar-button>
   </div>
   <div class="center">資料統計</div>
 </ons-toolbar>
 <div class="background"></div>
 <div class="content">
+  <ngx-datatable
+    class="material striped"
+    [rows]="rows$ | async"
+    [columns]="columns"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50">
+  </ngx-datatable>
 </div>

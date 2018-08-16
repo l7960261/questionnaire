@@ -24,3 +24,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [lodash](https://lodash.com/)
 
 [moment](https://momentjs.com/)
+
+[ngx-datatable](https://github.com/swimlane/ngx-datatable)

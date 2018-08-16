@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
+import { SurveyService } from '../../core/survey/survey.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ons-page',
@@ -7,13 +9,23 @@ import { MenuService } from '../../core/menu/menu.service';
   styleUrls: ['./statistics-page.component.css']
 })
 export class StatisticsPageComponent implements OnInit {
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, private surveyService: SurveyService) {}
+
+  rows$: Observable<any>;
+  columns: Array<any>;
 
   ngOnInit() {
-    console.log(this.menuService._statistics);
+    const organizer = this.menuService._statistics;
+    this.rows$ = this.surveyService.organizer(organizer);
+    this.columns = [
+      { name: '姓名', prop: 'displayName' },
+      { name: '人數', prop: 'members' },
+      { name: '兒童椅', prop: 'childSeats' },
+      { name: '素食', prop: 'invitation' }
+    ];
   }
 
-  home() {
-    this.menuService.index();
+  openMenu() {
+    this.menuService.open();
   }
 }
