@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
 import { SurveyService } from '../../core/survey/survey.service';
 import { Observable } from 'rxjs';
@@ -9,10 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./statistics-page.component.css']
 })
 export class StatisticsPageComponent implements OnInit {
-  constructor(private menuService: MenuService, private surveyService: SurveyService) {}
-
   rows$: Observable<any>;
   columns: Array<any>;
+  @ViewChild('invitationCell')
+  invitationCell: any;
+
+  constructor(private menuService: MenuService, private surveyService: SurveyService) {}
 
   ngOnInit() {
     const organizer = this.menuService._statistics;
@@ -21,7 +23,8 @@ export class StatisticsPageComponent implements OnInit {
       { name: '姓名', prop: 'displayName' },
       { name: '人數', prop: 'members' },
       { name: '兒童椅', prop: 'childSeats' },
-      { name: '素食', prop: 'invitation' }
+      { name: '素食', prop: 'vegetarian' },
+      { name: '喜帖', prop: 'invitation', cellTemplate: this.invitationCell }
     ];
   }
 
