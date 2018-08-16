@@ -32,6 +32,22 @@
         留言語錄
       </div>
     </ons-list-item>
+    <ons-list-item *ngIf="isAdmin" (click)="statistics(0)" modifier="longdivider">
+      <div class="left">
+        <ons-icon icon="fa-line-chart"></ons-icon>
+      </div>
+      <div class="center">
+        高雄統計
+      </div>
+    </ons-list-item>
+    <ons-list-item *ngIf="isAdmin" (click)="statistics(1)" modifier="longdivider">
+      <div class="left">
+        <ons-icon icon="fa-line-chart"></ons-icon>
+      </div>
+      <div class="center">
+        台中統計
+      </div>
+    </ons-list-item>
     <ons-list-header>作者資訊</ons-list-header>
     <ons-list-item modifier="longdivider">
       <div class="left">

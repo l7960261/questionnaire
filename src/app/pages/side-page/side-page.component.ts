@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
+import { AuthenticationService } from '../../core/authentication/authentication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ons-page',
@@ -7,9 +9,20 @@ import { MenuService } from '../../core/menu/menu.service';
   styleUrls: ['./side-page.component.css']
 })
 export class SidePageComponent implements OnInit {
-  constructor(private menuService: MenuService) {}
+  isAdmin: boolean;
+  user$: Subscription;
 
-  ngOnInit() {}
+  constructor(private menuService: MenuService, private authenticationService: AuthenticationService) {}
+
+  ngOnInit() {
+    this.user$ = this.authenticationService.user().subscribe(user => {
+      if (user) {
+        this.isAdmin = user.uid === 'd9cPOXiRw8hsu6UFSSbTJw4BWyn2' || user.uid === '3f0CAMBF26NPHpkzKFd2YgEdRbM2';
+      } else {
+        this.isAdmin = false;
+      }
+    });
+  }
 
   home() {
     this.menuService.index();
@@ -22,4 +35,6 @@ export class SidePageComponent implements OnInit {
   surveyMessage() {
     this.menuService.goSurveyMessage();
   }
+
+  statistics(key: number) {}
 }
