@@ -9,17 +9,41 @@
 <div class="background"></div>
 <div class="content">
   <ngx-datatable
-    class="material striped"
+    #table
+    class="material expandable"
     [rows]="rows$ | async"
     [columns]="columns"
     [columnMode]="'force'"
     [headerHeight]="50"
     [footerHeight]="50"
     [rowHeight]="'auto'">
+
+    <!-- Row Detail Template -->
+    <ngx-datatable-row-detail [rowHeight]="100">
+      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+        <div style="padding-left:35px;">
+          <div><strong>地址</strong></div>
+          <div>{{row.address}}</div>
+        </div>
+      </ng-template>
+    </ngx-datatable-row-detail>
+
   </ngx-datatable>
 </div>
 
+<ng-template #expandCell let-row="row" let-expanded="expanded">
+  <ons-button (click)="toggleExpandRow(row)"
+              modifier="quiet"
+              [class.datatable-icon-right]="!expanded"
+              [class.datatable-icon-down]="expanded"
+              title="Expand/Collapse Row">
+  </ons-button>
+</ng-template>
+<ng-template #attendCell let-row="row" let-value="value">
+  <ons-icon icon="fa-check" *ngIf="value" [style.color]="'green'"></ons-icon>
+  <ons-icon icon="fa-times" *ngIf="!value" [style.color]="'red'"></ons-icon>
+</ng-template>
 <ng-template #invitationCell let-row="row" let-value="value">
   <ons-icon icon="fa-check" *ngIf="value" [style.color]="'green'"></ons-icon>
-  <ons-icon icon="fa-times" *ngIf="!value"></ons-icon>
+  <ons-icon icon="fa-times" *ngIf="!value" [style.color]="'red'"></ons-icon>
 </ng-template>

@@ -13,6 +13,12 @@ export class StatisticsPageComponent implements OnInit {
   columns: Array<any>;
   @ViewChild('invitationCell')
   invitationCell: any;
+  @ViewChild('attendCell')
+  attendCell: any;
+  @ViewChild('expandCell')
+  expandCell: any;
+  @ViewChild('table')
+  table: any;
 
   constructor(private menuService: MenuService, private surveyService: SurveyService) {}
 
@@ -20,12 +26,18 @@ export class StatisticsPageComponent implements OnInit {
     const organizer = this.menuService._statistics;
     this.rows$ = this.surveyService.organizer(organizer);
     this.columns = [
+      { name: '', prop: '', cellTemplate: this.expandCell },
       { name: '姓名', prop: 'displayName' },
+      { name: '出席', prop: 'attend', cellTemplate: this.attendCell },
+      { name: '喜帖', prop: 'invitation', cellTemplate: this.invitationCell },
       { name: '人數', prop: 'members' },
       { name: '兒童椅', prop: 'childSeats' },
-      { name: '素食', prop: 'vegetarian' },
-      { name: '喜帖', prop: 'invitation', cellTemplate: this.invitationCell }
+      { name: '素食', prop: 'vegetarian' }
     ];
+  }
+
+  toggleExpandRow(row) {
+    this.table.rowDetail.toggleExpandRow(row);
   }
 
   openMenu() {
