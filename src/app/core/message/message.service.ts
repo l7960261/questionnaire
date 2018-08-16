@@ -41,9 +41,9 @@ export class MessageService {
       .list<IMessage>('/messages', ref => ref.orderByChild('timestamp'))
       .valueChanges()
       .pipe(
-        map(item =>
+        map(items =>
           _.flatten(
-            item.map(val => {
+            items.map(val => {
               const result = [];
               const base = {
                 displayName: val.displayName,
