@@ -9,3 +9,11 @@ export const surveyDetect = functions.database.ref('/surveys/{uid}/{organizer}')
 
   return Promise.resolve();
 });
+
+export const userDetect = functions.database.ref('/users/{uid}').onCreate((snapshot, context) => {
+  const original = snapshot.val();
+  console.log('Add: ', context.params.uid);
+  console.log('Value: ', original);
+
+  return Promise.resolve();
+});
