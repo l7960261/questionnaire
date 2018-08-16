@@ -4,6 +4,7 @@ import { ContentPageComponent } from './pages/content-page/content-page.componen
 import { MenuService } from './core/menu/menu.service';
 import { GalleryPageComponent } from './pages/gallery-page/gallery-page.component';
 import { SurveyMessagePageComponent } from './pages/survey-message-page/survey-message-page.component';
+import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,10 @@ export class AppComponent {
     });
     this.menuService.surveyMessage$.subscribe(() => {
       this.splitter.nativeElement.content.load(SurveyMessagePageComponent);
+      this.closeSlide();
+    });
+    this.menuService.statistics$.subscribe(() => {
+      this.splitter.nativeElement.content.load(StatisticsPageComponent);
       this.closeSlide();
     });
   }

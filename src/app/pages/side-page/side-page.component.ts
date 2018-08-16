@@ -36,5 +36,7 @@ export class SidePageComponent implements OnInit {
     this.menuService.goSurveyMessage();
   }
 
-  statistics(key: number) {}
+  statistics(key: number) {
+    this.menuService.goStatistics(key ? 'taichung' : 'kaohsiung');
+  }
 }
