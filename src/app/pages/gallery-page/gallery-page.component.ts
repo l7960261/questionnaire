@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 export class GalleryPageComponent implements OnInit {
   constructor(private menuService: MenuService) {}
 
-  photos = _.range(1).map(v => `/assets/images/weddingphotos/${v}.jpg`);
+  photos = _.range(8).map(v => `/assets/images/weddingphotos/${v}.jpg`);
   @ViewChild('modal')
   modal: any;
 
