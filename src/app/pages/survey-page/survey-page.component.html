@@ -15,9 +15,17 @@
           {{ attend.text }}
         </label>
       </ons-list-item>
-      <ons-list-header>有什麼話想和我們說嗎</ons-list-header>
-      <ons-list-item>
-        <ons-input placeholder="請留下你想說的話" [(value)]="message"></ons-input>
+      <ons-list-header *ngIf="surveyForm.get('attend').value">共幾個人出席 (包含自己)</ons-list-header>
+      <ons-list-item *ngIf="surveyForm.get('attend').value">
+        <input class="input-number" type="number" placeholder="請包含自己" formControlName="members">
+      </ons-list-item>
+      <ons-list-header *ngIf="surveyForm.get('attend').value">需要幾張兒童座椅</ons-list-header>
+      <ons-list-item *ngIf="surveyForm.get('attend').value">
+        <input class="input-number" type="number" placeholder="如不需要，請輸入 0" formControlName="childSeats">
+      </ons-list-item>
+      <ons-list-header *ngIf="surveyForm.get('attend').value">共幾位吃素</ons-list-header>
+      <ons-list-item *ngIf="surveyForm.get('attend').value">
+        <input class="input-number" type="number" placeholder="請一併考量同行親友" formControlName="vegetarian">
       </ons-list-item>
       <ons-list-header>是否需要寄送喜帖</ons-list-header>
       <ons-list-item *ngFor="let invitation of invitations; let i = index">
@@ -30,17 +38,9 @@
       <ons-list-item>
         <ons-input placeholder="含郵遞區號" [(value)]="address"></ons-input>
       </ons-list-item>
-      <ons-list-header>共幾個人出席 (包含自己)</ons-list-header>
+      <ons-list-header>有什麼話想和我們說嗎</ons-list-header>
       <ons-list-item>
-        <input class="input-number" type="number" placeholder="請包含自己" formControlName="members">
-      </ons-list-item>
-      <ons-list-header>需要幾張兒童座椅</ons-list-header>
-      <ons-list-item>
-        <input class="input-number" type="number" placeholder="如不需要，請輸入 0" formControlName="childSeats">
-      </ons-list-item>
-      <ons-list-header>共幾位吃素</ons-list-header>
-      <ons-list-item>
-        <input class="input-number" type="number" placeholder="請一併考量同行親友" formControlName="vegetarian">
+        <ons-input placeholder="請留下你想說的話" [(value)]="message"></ons-input>
       </ons-list-item>
     </ons-list>
   </form>
