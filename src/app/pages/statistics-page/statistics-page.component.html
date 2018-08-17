@@ -35,7 +35,8 @@
 </div>
 
 <ng-template #expandCell let-row="row" let-expanded="expanded">
-  <ons-button (click)="toggleExpandRow(row)"
+  <ons-button *ngIf="row.address"
+              (click)="toggleExpandRow(row)"
               modifier="quiet"
               [class.datatable-icon-right]="!expanded"
               [class.datatable-icon-down]="expanded"
