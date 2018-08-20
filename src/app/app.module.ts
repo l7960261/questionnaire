@@ -16,6 +16,8 @@ import { GalleryPageComponent } from './pages/gallery-page/gallery-page.componen
 import { CounterComponent } from './components/counter/counter.component';
 import { SurveyMessagePageComponent } from './pages/survey-message-page/survey-message-page.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,14 @@ import { StatisticsPageComponent } from './pages/statistics-page/statistics-page
     SurveyMessagePageComponent,
     StatisticsPageComponent
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, CoreModule.forRoot(), SharedModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    CoreModule.forRoot(),
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+  ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
