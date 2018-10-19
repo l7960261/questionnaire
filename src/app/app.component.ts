@@ -5,6 +5,7 @@ import { MenuService } from './core/menu/menu.service';
 import { GalleryPageComponent } from './pages/gallery-page/gallery-page.component';
 import { SurveyMessagePageComponent } from './pages/survey-message-page/survey-message-page.component';
 import { StatisticsPageComponent } from './pages/statistics-page/statistics-page.component';
+import { PwaService } from './core/pwa/pwa.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
   @ViewChild('splitter')
   splitter;
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService, private pwa: PwaService) {
     this.menuService.menu$.subscribe(() => this.splitter.nativeElement.side.open());
     this.menuService.index$.subscribe(() => {
       this.splitter.nativeElement.content.load(ContentPageComponent);
@@ -39,5 +40,9 @@ export class AppComponent {
 
   closeSlide() {
     this.splitter.nativeElement.side.close();
+  }
+
+  installPwa() {
+    this.pwa.promptEvent.prompt();
   }
 }

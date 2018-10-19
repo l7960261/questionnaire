@@ -16,6 +16,7 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { SurveyService } from './survey/survey.service';
 import { MessageService } from './message/message.service';
 import { MenuService } from './menu/menu.service';
+import { PwaService } from './pwa/pwa.service';
 
 const facebookCustomConfig: AuthProviderWithCustomConfig = {
   provider: AuthProvider.Facebook,
@@ -60,7 +61,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [AuthenticationService, SurveyService, MessageService, MenuService]
+      providers: [AuthenticationService, SurveyService, MessageService, MenuService, PwaService]
     };
   }
 }
