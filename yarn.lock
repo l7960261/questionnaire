@@ -3082,7 +3082,7 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase@^5.3.1:
+firebase@^5.5.5:
   version "5.5.5"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-5.5.5.tgz#41584a15bf40e3ce474880bb82478de35cc21dbb"
   integrity sha512-glnN/ru3CM3fTqsxbUEGyWbHYREZmC12tXYZ9q/l/qtHfLSN8hSOkVGNeSVuq7jfNmhGERhesMEu9jgdPyw02w==
@@ -3096,14 +3096,14 @@ firebase@^5.3.1:
     "@firebase/polyfill" "0.3.3"
     "@firebase/storage" "0.2.3"
 
-firebaseui-angular@^3.1.1:
+firebaseui-angular@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/firebaseui-angular/-/firebaseui-angular-3.3.2.tgz#b998da9324fa8b37e4bbcc1123d639ce63ab9286"
   integrity sha512-aLDo9wtSXbMdNL/KgJhh8gMbTdVGwSFpPBS2Xt3R0qbjcOlO0ShtOEo67kWhTTqDBQV8vA0eQXdnc2XrN1iyCA==
   dependencies:
     tslib "^1.9.0"
 
-firebaseui@^3.2.0:
+firebaseui@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/firebaseui/-/firebaseui-3.4.1.tgz#f440f1cc653d98f97caadf8f58f7d67b83d00fde"
   integrity sha512-DKXSFKC2ryCjpbifpLXC/erXPR8v7aCyWMicRXO0m7GNj+cpQgw7L3XOwzgpyoLKOL1DhsJ0Qniwi5qvvRSbjQ==
