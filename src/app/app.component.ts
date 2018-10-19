@@ -18,7 +18,7 @@ export class AppComponent {
   @ViewChild('splitter')
   splitter;
 
-  constructor(private menuService: MenuService, private pwa: PwaService) {
+  constructor(private menuService: MenuService, public pwa: PwaService) {
     this.menuService.menu$.subscribe(() => this.splitter.nativeElement.side.open());
     this.menuService.index$.subscribe(() => {
       this.splitter.nativeElement.content.load(ContentPageComponent);
