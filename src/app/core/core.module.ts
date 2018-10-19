@@ -8,10 +8,10 @@ import {
   FirebaseUIAuthConfig,
   FirebaseUIModule
 } from 'firebaseui-angular';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AuthenticationService } from './authentication/authentication.service';
 import { SurveyService } from './survey/survey.service';
 import { MessageService } from './message/message.service';

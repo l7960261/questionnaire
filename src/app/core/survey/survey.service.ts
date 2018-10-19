@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { fromPromise } from 'rxjs/internal-compatibility';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { combineLatest, interval, of } from 'rxjs';
 import * as _ from 'lodash';

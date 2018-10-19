@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { catchError, concatMap, map } from 'rxjs/operators';
 import { of } from 'rxjs';

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { mergeMap, catchError, map } from 'rxjs/operators';
 import { User } from 'firebase';
 import { fromPromise } from 'rxjs/internal-compatibility';
