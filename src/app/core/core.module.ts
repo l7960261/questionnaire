@@ -1,13 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  AuthMethods,
-  AuthProvider,
-  AuthProviderWithCustomConfig,
-  CredentialHelper,
-  FirebaseUIAuthConfig,
-  FirebaseUIModule
-} from 'firebaseui-angular';
+import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
@@ -16,24 +9,30 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { SurveyService } from './survey/survey.service';
 import { MessageService } from './message/message.service';
 import { MenuService } from './menu/menu.service';
-import { PwaService } from './pwa/pwa.service';
 
-const facebookCustomConfig: AuthProviderWithCustomConfig = {
-  provider: AuthProvider.Facebook,
-  customConfig: {
-    scopes: ['email', 'user_link']
-    // customParameters: {
-    //   // Forces password re-entry.
-    //   auth_type: 'reauthenticate'
-    // }
-  }
-};
-
-const firebaseUiAuthConfig: FirebaseUIAuthConfig = {
-  providers: [facebookCustomConfig],
-  method: AuthMethods.Redirect,
-  credentialHelper: CredentialHelper.AccountChooser,
-  autoUpgradeAnonymousUsers: true
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    {
+      scopes: ['email', 'user_link'],
+      // customParameters: {
+      //   auth_type: 'reauthenticate'
+      // },
+      provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    }
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    // {
+    //   requireDisplayName: false,
+    //   provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
+    // },
+    // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+  ],
+  // tosUrl: '<your-tos-link>',
+  // privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
 };
 
 @NgModule({
@@ -61,7 +60,7 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [AuthenticationService, SurveyService, MessageService, MenuService, PwaService]
+      providers: [AuthenticationService, SurveyService, MessageService, MenuService]
     };
   }
 }
