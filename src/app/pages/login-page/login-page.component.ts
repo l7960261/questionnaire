@@ -75,8 +75,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   }
 
   firebaseSuccessCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    const userProfile = signInSuccessData.authResult.additionalUserInfo.profile['link'];
-    this.user.profile = userProfile;
+    if (signInSuccessData.authResult.additionalUserInfo.profile) {
+      const userLink = signInSuccessData.authResult.additionalUserInfo.profile['link'];
+      this.user.profile = userLink;
+    }
   }
 
   fbPage(url: string) {

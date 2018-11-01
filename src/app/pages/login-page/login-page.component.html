@@ -21,8 +21,14 @@
     </svg>
   </div>
   <aside class="intro">
-    <span *ngIf="!isSignIn">我們要結婚了！誠摯邀請您參加！</span>
-    <span *ngIf="isSignIn">Step 1 - 請填寫聯絡資訊</span>
+    <div *ngIf="!isSignIn">
+      <span> 誠摯邀請您參加！</span>
+      <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 請先登入進行填寫或修改問券內容</sub></div>
+    </div>
+    <div *ngIf="isSignIn">
+      <span>Step 1 - 請填寫聯絡資訊</span>
+      <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的賓客可點擊下一步進行修改</sub></div>
+    </div>
   </aside>
   <firebase-ui (signInSuccessWithAuthResult)="firebaseSuccessCallback($event)"></firebase-ui>
 
@@ -54,12 +60,8 @@
     </ons-list-item>
   </ons-list>
 
-  <div class="operation" *ngIf="!isSignIn">
-    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 請先登入進行填寫或修改問券內容</sub></div>
-  </div>
   <div class="operation" *ngIf="isSignIn">
     <ons-button (click)="onNext()" modifier="material">下一步</ons-button>
-    <div><sub><ons-icon icon="fa-info-circle"></ons-icon> 已填寫過的賓客可點擊下一步進行修改</sub></div>
   </div>
 
   <app-counter></app-counter>
