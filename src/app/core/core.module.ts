@@ -11,7 +11,7 @@ import { MessageService } from './message/message.service';
 import { MenuService } from './menu/menu.service';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  signInFlow: 'popup',
+  signInFlow: 'redirect',
   signInOptions: [
     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     {
