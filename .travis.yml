@@ -15,8 +15,8 @@ before_script:
 - npm install -g @angular/cli
 
 script:
-  - npm rum apiKey $FIREBASE_APIKEY
-  - npm rum build
+  - npm run apiKey $FIREBASE_APIKEY
+  - npm run build
 
 after_success:
   - firebase deploy --token "$FIREBASE_TOKEN"
