@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MenuService } from '../../core/menu/menu.service';
 import { SurveyService } from '../../core/survey/survey.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import * as _ from 'lodash';
 
 @Component({
@@ -9,7 +9,9 @@ import * as _ from 'lodash';
   templateUrl: './statistics-page.component.html',
   styleUrls: ['./statistics-page.component.css']
 })
-export class StatisticsPageComponent implements OnInit {
+export class StatisticsPageComponent implements OnInit, OnDestroy {
+  surveys$: Subscription;
+  emails: string;
   rows$: Observable<any>;
   columns: Array<any>;
   @ViewChild('invitationCell')
@@ -26,6 +28,9 @@ export class StatisticsPageComponent implements OnInit {
   ngOnInit() {
     const organizer = this.menuService._statistics;
     this.rows$ = this.surveyService.organizer(organizer);
+    this.surveys$ = this.rows$.subscribe(data => {
+      this.emails = data.filter(d => d.attend).map(d => d.email).join(',')
+    });
     this.columns = [
       { name: '', prop: 'photoURL', summaryFunc: null, cellTemplate: this.expandCell },
       { name: '姓名', prop: 'displayName', summaryFunc: null },
@@ -35,6 +40,10 @@ export class StatisticsPageComponent implements OnInit {
       { name: '兒童椅', prop: 'childSeats', summaryFunc: cells => this.summaryForChildSeats(cells) },
       { name: '素食', prop: 'vegetarian', summaryFunc: cells => this.summaryForVegetarian(cells) }
     ];
+  }
+
+  ngOnDestroy(): void {
+    this.surveys$.unsubscribe();
   }
 
   toggleExpandRow(row) {
