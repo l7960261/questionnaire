@@ -19,7 +19,7 @@ export class SurveyPageComponent implements OnInit, OnDestroy {
   uid: string;
   organizer: string;
   attends = [{ text: '是', value: 1 }, { text: '否', value: 0 }];
-  invitations = [{ text: '需要，請寄紙本喜帖給我', value: 1 }, { text: '不用唷，婚禮相關資訊我知道了', value: 0 }];
+  invitations = [{ text: '實體喜帖已全數寄完，將寄送電子喜帖', value: 1 }, { text: '不用唷，婚禮相關資訊我知道了', value: 0 }];
   address: string;
   message: string;
   surveyForm: FormGroup;
