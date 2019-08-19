@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/l7960261/questionnaire.svg?branch=master)](https://travis-ci.org/l7960261/questionnaire) [![Dependency Status](https://david-dm.org/l7960261/questionnaire.svg)](https://david-dm.org/l7960261/questionnaire) [![devDependency Status](https://david-dm.org/l7960261/questionnaire/dev-status.svg)](https://david-dm.org/l7960261/questionnaire?type=dev)
+[![Build Status](https://travis-ci.com/l7960261/questionnaire.svg?branch=master)](https://travis-ci.com/l7960261/questionnaire) [![Dependency Status](https://david-dm.org/l7960261/questionnaire.svg)](https://david-dm.org/l7960261/questionnaire) [![devDependency Status](https://david-dm.org/l7960261/questionnaire/dev-status.svg)](https://david-dm.org/l7960261/questionnaire?type=dev)
 
 [![Open Source Love png2](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
