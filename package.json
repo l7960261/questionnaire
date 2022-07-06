@@ -29,7 +29,7 @@
     "firebaseui": "^3.4.1",
     "firebaseui-angular": "^3.3.2",
     "lodash": "^4.17.10",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "ngx-onsenui": "^7.0.0",
     "onsenui": "^2.10.6",
     "rxjs": "^6.0.0",
